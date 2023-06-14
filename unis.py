@@ -18,14 +18,27 @@ for div_e in divs:
     for a in atag:
         universities.append(a.text)
 
-
-with open('uni_list.js','w') as file:
+with open('uni_list.js', 'w') as file:
     file.write('export const universities = [ \n')
     for u in universities:
-        index = universities.index(u)+1
+        index = universities.index(u) + 1
         u = u.replace("'", "\\'")
         file.write('{ \n id:' + str(index) + ',\nname: ' + '\'' + str(u) + '\',\n }, \n')
 
     file.write(']')
 
 
+def getResWebsite():
+
+
+    uniURLList = []
+    divs = bs.find_all(class_='university_dropdown')
+    print(divs)
+    for div_e in divs:
+        liTag = div_e.find_all('li')
+        for li in liTag:
+            atag = liTag.find_all('a')
+            for a in atag:
+                uniURLList.append(a)
+
+    return uniURLList

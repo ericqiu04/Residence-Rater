@@ -18,7 +18,7 @@ for div_e in divs:
     for a in atag:
         universities.append(a.text)
 
-with open('uni_list.js', 'w') as file:
+with open('../uni_list.js', 'w') as file:
     file.write('export const universities = [ \n')
     for u in universities:
         index = universities.index(u) + 1

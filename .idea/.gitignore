@@ -10,5 +10,4 @@
 serviceAccountKey.json
 #ignore
 credentials/serviceAccountKey.json
-
 .env

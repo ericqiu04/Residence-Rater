@@ -1,8 +1,9 @@
-from django.shortcuts import render, request
+from django.shortcuts import render
+from django.http import request
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-cred = credentials.Certificate('credentials/serviceAccountKey.json')
+cred = credentials.Certificate('../credentials/serviceAccountKey.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()

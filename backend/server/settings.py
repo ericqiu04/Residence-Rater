@@ -17,9 +17,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#Firebase Intitialization
-cred = credentials.Certificate('credentials/serviceAccountKey.json')
-firebase_admin.initialize_app(cred)
 
 # Application definition
 
@@ -31,7 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -42,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -64,7 +63,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 

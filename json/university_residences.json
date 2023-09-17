@@ -46,6 +46,53 @@
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/columbia-lake-village/columbia-lake-village-south"
                 }
             ]
+        },
+        {
+            "name": "University of Toronto",
+            "housing":[
+                {
+                    "name": "Village 1",
+                    "location":"200 University Ave W, Waterloo, ON N2J 4B6",
+                    "price":"$2841-4263",
+                    "style":"Traditional",
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/v1"
+                },
+                {
+                    "name": "Ron Edyt Village",
+                    "location":"200 University Ave W, Waterloo, ON N2L 3G5",
+                    "price":"$2549-3824",
+                    "style":"Traditional",
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/rev"
+                },
+                {
+                    "name": "Claudette Millar Hall",
+                    "location":"165 University Ave W, Waterloo, ON N2L 3E8",
+                    "price":"$2970-4676",
+                    "style":"Traditional",
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/claudette-millar-hall"
+                },
+                {
+                    "name": "Mackenzie King Village",
+                    "location":"200 University Ave W, Waterloo, ON N2J 4Z2",
+                    "price":"$3393-5088",
+                    "style":"Suite",
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/mkv"
+                },
+                {
+                    "name": "UW Place",
+                    "location":"106 Seagram Dr, Waterloo, ON N2L 3B8",
+                    "price":"$2677-4597",
+                    "style":"Suite",
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/uwp"
+                },
+                {
+                    "name": "Columbia Lake Village - Soute",
+                    "location":"350 Columbia St W, Waterloo, ON N2L 6G2",
+                    "price":"$2710-4065",
+                    "style":"Suite",
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/columbia-lake-village/columbia-lake-village-south"
+                }
+            ]
         }
     ]
 }

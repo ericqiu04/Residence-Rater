@@ -32,7 +32,7 @@ class Home extends React.Component<{}, State> {
       });
   }
 
-  render() {
+  render() { 
     return (
       <>
         <div className="flex h-screen justify-center items-center">

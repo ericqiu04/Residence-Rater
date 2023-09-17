@@ -1,7 +1,7 @@
 {
     "universities":[
         {
-            "name": "University of Waterloo",
+            "school_id": "University of Waterloo",
             "housing":[
                 {
                     "name": "Village 1",
@@ -48,7 +48,7 @@
             ]
         },
         {
-            "name": "University of Toronto",
+            "school_id": "University of Toronto",
             "housing":[
                 {
                     "name": "Village 1",

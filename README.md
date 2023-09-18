@@ -2,16 +2,15 @@
 
 Residence Rater is a full stack web applications that allows users to rate first year residences at every Ontario University
 
-<h3><ins>Tech Stack</ins></h3>
+##Tech Stack
 <ul>
   <li>
-    Frontend: NextJs
+    Frontend: NextJs, TailwindCSS, Typescript
   </li>
   <li>
-    Backend: Django + Firebase
+    Backend: Python, Django, Firebase
   </li>
   <li>
-    External API: Google Maps API
+    External APIs: Google Maps API
   </li>
-  
 </ul>

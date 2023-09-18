@@ -5,26 +5,22 @@ import json
 
 
 # firebase
-from .firebase_utils import fetch_user, save_user
-
+from .authentication import register
 
 def hello_world(request):
-    return HttpResponse("Hello, World!")
+    return HttpResponse("working")
 
 
-def user_login(request):
+def user_register(request):
     data = json.loads(request.body)
-    name = data.get("name")
+    username = data.get('username')
+    fName = data.get("firstName")
+    lName = data.get('lastName')
     password = data.get("password")
+    cPassword = data.get('confirmPass')
     email = data.get("email")
+    
+    user_id = register(username,fName, lName, email, password, cPassword)
+    return JsonResponse(user_id)
 
-    user_id = save_user(name, email, password)
-    if user_id:
-        return JsonResponse({"id": user_id})
-
-    else:
-        return JsonResponse({"id": "unknown"})
-
-
-def test():
-    fetch_user()
+    

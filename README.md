@@ -1,3 +1,17 @@
-#Ontario University Residence Rater
+<h1>Ontario University Residence Rater</h1>
 
-This app allows users to rate residences at each university.
+Residence Rater is a full stack web applications that allows users to rate first year residences at every Ontario University
+
+<h3><u>Tech Stack</u></h3>
+<ul>
+  <li>
+    Frontend: NextJs
+  </li>
+  <li>
+    Backend: Django + Firebase
+  </li>
+  <li>
+    External API: Google Maps API
+  </li>
+  
+</ul>

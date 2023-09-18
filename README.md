@@ -1,4 +1,4 @@
-<h1>Ontario University Residence Rater</h1>
+# Ontario University Residence Rater
 
 Residence Rater is a full stack web applications that allows users to rate first year residences at every Ontario University
 

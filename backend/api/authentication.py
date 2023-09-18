@@ -35,6 +35,20 @@ def register(username, first_name, last_name, email, password, confirm_password)
     return {'message': 'Registration Success', 'id': username}
     
 
+def login(username, password):
+    if not check_username(username.upper()):
+        return {'message': 'incorrect username'}
+    
+    user_data = user_ref.document(username.upper()).get()
+    h_password = user_data.to_dict().get('password')
+    
+    if bcrypt.checkpw(password.encode('utf-8'), h_password.encode('utf-8')):
+        return {'message': "login successful"}
+    else:
+        return {'error': "password incorrect"}
+
+
+
 def check_email(email):
     query = user_ref.where('Email', '==', email).get()
     print(query)

@@ -5,7 +5,7 @@ import json
 
 
 # firebase
-from .authentication import register
+from .authentication import register, login
 
 def hello_world(request):
     return HttpResponse("working")
@@ -20,7 +20,13 @@ def user_register(request):
     cPassword = data.get('confirmPass')
     email = data.get("email")
     
-    user_id = register(username,fName, lName, email, password, cPassword)
-    return JsonResponse(user_id)
-
+    message = register(username,fName, lName, email, password, cPassword)
+    return JsonResponse(message)
     
+def user_login(request):
+    data = json.loads(request.body)
+    username = data.get('username')
+    password = data.get("password")
+    
+    message = login(username, password)
+    return JsonResponse(message)

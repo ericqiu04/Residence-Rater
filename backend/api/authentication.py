@@ -9,6 +9,8 @@ firebase_admin.initialize_app(
 db = firestore.client()
 user_ref = db.collection("users")
 
+logged_in = False
+
 def register(username, first_name, last_name, email, password, confirm_password):
     
     user_id = username.upper()
@@ -32,7 +34,8 @@ def register(username, first_name, last_name, email, password, confirm_password)
         'Email': email,
         'password': h_password.decode('utf-8')
     })
-    return {'message': 'Registration Success', 'id': username}
+    sign_in()
+    return {'message': 'Registration Success', 'id': username, "signin?": logged_in}
     
 
 def login(username, password):
@@ -42,12 +45,20 @@ def login(username, password):
     user_data = user_ref.document(username.upper()).get()
     h_password = user_data.to_dict().get('password')
     
+    #checks for password matching
     if bcrypt.checkpw(password.encode('utf-8'), h_password.encode('utf-8')):
-        return {'message': "login successful"}
+        sign_in()
+        return {'message': "login successful", "signin?": logged_in}
     else:
-        return {'error': "password incorrect"}
+        return {'error': "password incorrect", "signin?": logged_in}
 
-
+def sign_in():
+    global logged_in
+    logged_in = True
+    
+def sign_out():
+    global logged_in
+    logged_in = False
 
 def check_email(email):
     query = user_ref.where('Email', '==', email).get()

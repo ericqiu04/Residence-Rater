@@ -1,96 +1,119 @@
+
+
 {
     "universities":[
         {
             "school_id": "University of Waterloo",
             "housing":[
                 {
-                    "name": "Village 1",
+                    "res_name": "Village 1",
                     "location":"200 University Ave W, Waterloo, ON N2J 4B6",
-                    "price":"$2841-4263",
+                    "price":"$2,841 - 4,263 Per Term",
                     "style":"Traditional",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/v1"
                 },
                 {
-                    "name": "Ron Edyt Village",
+                    "res_name": "Ron Edyt Village",
                     "location":"200 University Ave W, Waterloo, ON N2L 3G5",
-                    "price":"$2549-3824",
+                    "price":"$2,549 - 3,824 Per Term",
                     "style":"Traditional",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/rev"
                 },
                 {
-                    "name": "Claudette Millar Hall",
+                    "res_name": "Claudette Millar Hall",
                     "location":"165 University Ave W, Waterloo, ON N2L 3E8",
-                    "price":"$2970-4676",
+                    "price":"$2,970 - 4,676 Per Term",
                     "style":"Traditional",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/claudette-millar-hall"
                 },
                 {
-                    "name": "Mackenzie King Village",
+                    "res_name": "Mackenzie King Village",
                     "location":"200 University Ave W, Waterloo, ON N2J 4Z2",
-                    "price":"$3393-5088",
+                    "price":"$3,393 - 5,088 Per Term",
                     "style":"Suite",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/mkv"
                 },
                 {
-                    "name": "UW Place",
+                    "res_name": "UW Place",
                     "location":"106 Seagram Dr, Waterloo, ON N2L 3B8",
-                    "price":"$2677-4597",
+                    "price":"$2,677 - 4,597 Per Term",
                     "style":"Suite",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/uwp"
                 },
                 {
-                    "name": "Columbia Lake Village - Soute",
+                    "res_name": "Columbia Lake Village - Soute",
                     "location":"350 Columbia St W, Waterloo, ON N2L 6G2",
-                    "price":"$2710-4065",
+                    "price":"$2,710 - 4,065 Per Term",
                     "style":"Suite",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/columbia-lake-village/columbia-lake-village-south"
                 }
             ]
         },
         {
-            "school_id": "University of Toronto",
+            "school_id": "University of Toronto - St. George",
             "housing":[
                 {
-                    "name": "Village 1",
-                    "location":"200 University Ave W, Waterloo, ON N2J 4B6",
-                    "price":"$2841-4263",
-                    "style":"Traditional",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/v1"
+                    "res_name": "Chestnut Residence",
+                    "location":"89 Chestnut Street, Toronto, Ontario M5G 1R1",
+                    "price":"$17,635.22 - 21,567.22 Per Year",
+                    "style":"Traditional Dormitory",
+                    "rLink":"https://chestnut.utoronto.ca/"
                 },
                 {
-                    "name": "Ron Edyt Village",
-                    "location":"200 University Ave W, Waterloo, ON N2L 3G5",
-                    "price":"$2549-3824",
-                    "style":"Traditional",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/rev"
+                    "res_name": "Innis College",
+                    "location":"111 St. George Street, Toronto, Ontario M5S 2E8",
+                    "price":"$11,016 Per Year",
+                    "style":"Shared Appartment",
+                    "rLink":"https://innis.utoronto.ca/residence/about-the-residence/"
                 },
                 {
-                    "name": "Claudette Millar Hall",
-                    "location":"165 University Ave W, Waterloo, ON N2L 3E8",
-                    "price":"$2970-4676",
-                    "style":"Traditional",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/claudette-millar-hall"
+                    "res_name": "New College",
+                    "location":"40 Willcocks Street, Toronto, Ontario M5S 1C6",
+                    "price":"$15,945 - 17,370 Per Year",
+                    "style":"Dormitory",
+                    "rLink":"http://www.newcollege.utoronto.ca/current-students/residence-at-new-college/"
                 },
                 {
-                    "name": "Mackenzie King Village",
-                    "location":"200 University Ave W, Waterloo, ON N2J 4Z2",
-                    "price":"$3393-5088",
-                    "style":"Suite",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/mkv"
+                    "res_name": "St. Michael's College",
+                    "location":"81 St. Mary Street, Toronto, Ontario M5S 1J4",
+                    "price":"$15,889 - 18,162 Per Year",
+                    "style":"Dormitory",
+                    "rLink":"https://stmikes.utoronto.ca/community/st-michaels-college-residence"
                 },
                 {
-                    "name": "UW Place",
-                    "location":"106 Seagram Dr, Waterloo, ON N2L 3B8",
-                    "price":"$2677-4597",
-                    "style":"Suite",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/uwp"
+                    "res_name": "Loretto College",
+                    "location":"70 St. Mary Street, Toronto, Ontario M5S 1J3",
+                    "price":"$15,945 - 15,550",
+                    "style":"Dormitory",
+                    "rLink":"https://stmikes.utoronto.ca/community/loretto-college-residence-women"
                 },
                 {
-                    "name": "Columbia Lake Village - Soute",
-                    "location":"350 Columbia St W, Waterloo, ON N2L 6G2",
-                    "price":"$2710-4065",
-                    "style":"Suite",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/columbia-lake-village/columbia-lake-village-south"
+                    "res_name": "Trinity College",
+                    "location":"6 Hoskin Avenue, Toronto, Ontario M5S 1H8",
+                    "price":"$16,120 - 17,520 Per Year",
+                    "style":" Dormitory",
+                    "rLink":"https://www.trinity.utoronto.ca/engage/residence/"
+                },
+                {
+                    "res_name": "University College",
+                    "location":"15 King’s College Circle, Toronto, Ontario M5S 3H7",
+                    "price":"$14,719 - 16,333 Per Year",
+                    "style":"Dormitory",
+                    "rLink":"http://www.uc.utoronto.ca/housing"
+                },
+                {
+                    "res_name": "Victoria College",
+                    "location":"15 King’s College Circle, Toronto, Ontario M5S 3H7",
+                    "price":"$12,714.74 - 17,936.74 Per Year",
+                    "style":"Dormitory + Shared Apartment",
+                    "rLink":"https://www.vic.utoronto.ca/current-students/residence-life/"
+                },
+                {
+                    "res_name": "Woodsworth College",
+                    "location":"321 Bloor Street West, Toronto, Ontario M5S 1S5",
+                    "price":"$11,203 Per Year",
+                    "style":"Private + Shared Apartment",
+                    "rLink":"http://www.wdw.utoronto.ca/index.php/new_students/residence/"
                 }
             ]
         }

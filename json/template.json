@@ -1,0 +1,16 @@
+{
+    "universities":[
+        {
+            "school_id": "",
+            "housing": [
+                {
+                    "res_name": "",
+                    "location":"",
+                    "price":"",
+                    "style":"",
+                    "rLink":""
+                }
+            ]
+        }
+    ]
+}

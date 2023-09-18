@@ -11,10 +11,20 @@ db = firestore.client()
 with open('../json/university_residences.json', 'r') as json_file:
     data = json.load(json_file)
     for uni in data["universities"]:
-        name = uni['school_id']
-        housing_data = uni['housing']
-        print(name)
-        ref = db.collection('universities').document(name)
-        ref.set({
-                'school_id': name
-        })
+        school_id = uni['school_id']
+        res_data = uni['housing']
+        print(school_id)
+        school_ref = db.collection('universities').document(school_id)
+
+        house_ref = school_ref.collection('residence')
+
+        for res in res_data:
+            res_id = res['res_name']
+            print(res_id)
+            res_ref = house_ref.document(res_id)
+            res_ref.set({
+                'location': res['location'],
+                'price': res['price'],
+                'style': res['style'],
+                'link': res['rLink']
+            })

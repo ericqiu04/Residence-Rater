@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # firebase
-from .authentication import register, login, get_user, update_user
+from .authentication import register, login, get_user, update_user, delete_data
 
 def hello_world(request):
     return HttpResponse("working")
@@ -46,6 +46,12 @@ def user_profiles(request, username):
         user_data = update_user(username, data)
         if user_data:
             return JsonResponse({'success': 'updated user information'}, status = 200)
+        else:
+            return JsonResponse({'error': 'user not found'}, status = 404)
+    elif request.method == "DELETE":
+        deleted_data = delete_data(username)
+        if deleted_data:
+            return JsonResponse(deleted_data, status = 200)
         else:
             return JsonResponse({'error': 'user not found'}, status = 404)
     else:

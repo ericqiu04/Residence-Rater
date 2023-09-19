@@ -3,9 +3,11 @@ from django.db import models
 from django.http import HttpResponse, JsonResponse
 import json
 
+from django.views.decorators.csrf import csrf_exempt
+
 
 # firebase
-from .authentication import register, login
+from .authentication import register, login, get_user, update_user
 
 def hello_world(request):
     return HttpResponse("working")
@@ -30,3 +32,21 @@ def user_login(request):
     
     message = login(username, password)
     return JsonResponse(message)
+
+@csrf_exempt
+def user_profiles(request, username):
+    if request.method == "GET":
+        user_data = get_user(username)
+        if user_data:
+            return JsonResponse(user_data, status = 200)
+        else:
+            return JsonResponse({'error': 'user not found'}, status = 404)
+    elif request.method == "PUT":
+        data = json.loads(request.body)
+        user_data = update_user(username, data)
+        if user_data:
+            return JsonResponse({'success': 'updated user information'}, status = 200)
+        else:
+            return JsonResponse({'error': 'user not found'}, status = 404)
+    else:
+        return JsonResponse({'error': 'invalid request method'}, status = 405)

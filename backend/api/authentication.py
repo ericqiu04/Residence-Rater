@@ -28,10 +28,10 @@ def register(username, first_name, last_name, email, password, confirm_password)
 
     #storing to database
     user_ref.document(user_id).set({
-        'Username' : user_id,
-        'First Name': first_name,
-        'Last Name': last_name,
-        'Email': email,
+        'username' : user_id,
+        'firstName': first_name,
+        'lastName': last_name,
+        'email': email,
         'password': h_password.decode('utf-8')
     })
     sign_in()
@@ -61,14 +61,31 @@ def sign_out():
     logged_in = False
 
 def check_email(email):
-    query = user_ref.where('Email', '==', email).get()
+    query = user_ref.where('email', '==', email).get()
     print(query)
     return len(query) > 0
 
 def check_username(user):
-    user_data = user_ref.document(user).get()
+    user_data = user_ref.document(user.upper()).get()
     if user_data.exists:
         return True
     else:
         return False
 
+def get_user(user):
+    print(user)
+    user_data = user_ref.document(user.upper()).get()
+    if user_data.exists:
+        return user_data.to_dict()
+    else:
+        return None
+
+def update_user(user, new_data):
+    user_data = user_ref.document(user.upper())
+    current_data = user_data.get().to_dict()
+    if not current_data:
+        return False
+    updated_data = {**current_data, **new_data}
+    user_data.update(updated_data)
+
+    return True

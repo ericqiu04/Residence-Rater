@@ -21,7 +21,7 @@ with open('../json/university_residences.json', 'r') as json_file:
         for res in res_data:
             res_id = res['res_name']
             print(res_id)
-            res_ref = house_ref.document(res_id)
+            res_ref = house_ref.document(res_id.lower())
             res_ref.set({
                 'location': res['location'],
                 'price': res['price'],
@@ -31,9 +31,6 @@ with open('../json/university_residences.json', 'r') as json_file:
             rating_ref = res_ref.collection('rating')
             rating = rating_ref.document('test')
             rating.set({
-                'user': 'test',
-                'comment': 'it is good',
-                'rating': 4.5
             })
             
 

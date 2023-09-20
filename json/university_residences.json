@@ -41,7 +41,7 @@
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/uwp"
                 },
                 {
-                    "res_name": "Columbia Lake Village - Soute",
+                    "res_name": "Columbia Lake Village - South",
                     "location":"350 Columbia St W, Waterloo, ON N2L 6G2",
                     "price":"$2,710 - 4,065 Per Term",
                     "style":"Suite",
@@ -50,7 +50,7 @@
             ]
         },
         {
-            "school_id": "University of Toronto - STG",
+            "school_id": "University of Toronto STG",
             "housing":[
                 {
                     "res_name": "Chestnut Residence",

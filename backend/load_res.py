@@ -28,3 +28,12 @@ with open('../json/university_residences.json', 'r') as json_file:
                 'style': res['style'],
                 'link': res['rLink']
             })
+            rating_ref = res_ref.collection('rating')
+            rating = rating_ref.document('test')
+            rating.set({
+                'user': 'test',
+                'comment': 'it is good',
+                'rating': 4.5
+            })
+            
+

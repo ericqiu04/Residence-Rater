@@ -14,7 +14,7 @@ with open('../json/university_residences.json', 'r') as json_file:
         school_id = uni['school_id']
         res_data = uni['housing']
         print(school_id)
-        school_ref = db.collection('universities').document(school_id)
+        school_ref = db.collection('universities').document(school_id.lower())
 
         house_ref = school_ref.collection('residence')
 

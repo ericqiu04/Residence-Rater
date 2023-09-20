@@ -8,12 +8,7 @@ firebase_admin.initialize_app(
 db = firestore.client()
 user_ref = db.collection("university")
 
-universites = user_ref.stream()
+def create_review(uni_name, user, message, rating):
 
-for uni in universites:
-    res_ref = uni.collection('residences')
-    residences = res_ref.stream()
-
-    for res in residences:
-        rating_ref = res.collection('rating')
-        
+    uni_ref = user_ref.document(uni_name)
+    house_ref = 

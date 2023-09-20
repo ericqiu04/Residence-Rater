@@ -56,3 +56,6 @@ def user_profiles(request, username):
             return JsonResponse({'error': 'user not found'}, status = 404)
     else:
         return JsonResponse({'error': 'invalid request method'}, status = 405)
+    
+def create_rating(request, university, residence_name):
+    return HttpResponse('hello')

@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # firebase
 from .authentication import register, login, get_user, update_user, delete_data
+from .rating import create_review
 
 def hello_world(request):
     return HttpResponse("working")
@@ -58,4 +59,14 @@ def user_profiles(request, username):
         return JsonResponse({'error': 'invalid request method'}, status = 405)
     
 def create_rating(request, university, residence_name):
-    return HttpResponse('hello')
+    data = json.loads(request.body)
+    message = data.get('message')
+    rating = data.get('rating')
+    user = data.get('user')
+    
+    rating = create_review(uni_name = university,res_name = residence_name,user = user,message = message,rating_value = rating)
+    if rating:
+        return JsonResponse(rating)
+    else:
+        return JsonResponse({'error': 'there was a problem when creating rating'})
+   

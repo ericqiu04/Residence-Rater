@@ -27,6 +27,14 @@ def update_review(uni_name, res_name, user, data):
 
 def delete_rating(uni_name, res_name, user):
     rating_ref = get_rating_ref(uni_name, res_name)
+    data = rating_ref.document(user.lower()).get().to_dict()
+
+    if not data.exists:
+        return {'error': 'rating does not exist'}
+    
+    rating_ref.document(user.lower()).delete()
+
+    return {'success': 'rating has been deleted'}
 
 
 def get_rating_ref(uni_name, res_name):

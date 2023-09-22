@@ -51,6 +51,26 @@ def login(username, password):
         return {'message': "login successful", "signin?": logged_in}
     else:
         return {'error': "password incorrect", "signin?": logged_in}
+    
+def update_user(user, new_data):
+    user_data = user_ref.document(user.upper())
+    current_data = user_data.get().to_dict()
+    if not current_data:
+        return False
+    updated_data = {**current_data, **new_data}
+    user_data.update(updated_data)
+
+    return True
+
+def delete_data(user):
+    user_data = user_ref.document(user.upper()).get()
+
+    if not user_data.exists:
+        return False
+    
+    user_ref.document(user.upper()).delete()
+    return {'Message': 'User has been deleted', 'username': user}
+
 
 def sign_in():
     global logged_in
@@ -79,22 +99,3 @@ def get_user(user):
         return user_data.to_dict()
     else:
         return None
-
-def update_user(user, new_data):
-    user_data = user_ref.document(user.upper())
-    current_data = user_data.get().to_dict()
-    if not current_data:
-        return False
-    updated_data = {**current_data, **new_data}
-    user_data.update(updated_data)
-
-    return True
-
-def delete_data(user):
-    user_data = user_ref.document(user.upper()).get()
-
-    if not user_data.exists:
-        return False
-    
-    user_ref.document(user.upper()).delete()
-    return {'Message': 'User has been deleted', 'username': user}

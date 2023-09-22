@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # firebase
 from .authentication import register, login, get_user, update_user, delete_data
-from .rating import create_review, update_review
+from .rating import create_review, update_review, delete_review
 
 def hello_world(request):
     return HttpResponse("working")
@@ -73,9 +73,16 @@ def create_rating(request, university, residence_name):
 def update_rating(request, university, residence_name):
     data = json.loads(request.body)
     user = data.pop('user', None)
-    print(data)
     rating = update_review(data = data, uni_name=university, res_name=residence_name, user = user)
     if rating:
         return JsonResponse(rating)
     else:
         return JsonResponse({'error': 'there was a problem when updating rating'})
+
+def delete_rating(request, university, residence_name):
+    user = json.loads(request.body).get('user')
+    rating = delete_review(user = user, uni_name = university, res_name = residence_name)
+    if rating:
+        return JsonResponse(rating)
+    else:
+        return JsonResponse({'error': 'there was a problem when deleting rating'})

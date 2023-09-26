@@ -5,7 +5,7 @@ Residence Rater is a full stack web applications that allows users to rate first
 ## Tech Stack
 <ul>
   <li>
-    Frontend: NextJs, TailwindCSS, Typescript
+    Frontend: NextJs, TailwindCSS, Typescript, Framer Motion
   </li>
   <li>
     Backend: Python, Django, Firebase

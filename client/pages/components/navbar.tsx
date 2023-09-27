@@ -1,25 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { MdSearch } from "react-icons/md";
-import { motion } from 'framer-motion';
-
-
-
+import { motion } from "framer-motion";
+import {AiOutlineMenu} from 'react-icons/ai'
 interface NavbarState {
-  showSearchBar: boolean;
+  isMenuOpen: boolean;
   searchQuery: string;
 }
 
 class Navbar extends React.Component<{}, NavbarState> {
   state: NavbarState = {
-    showSearchBar: false,
+    isMenuOpen: false,
     searchQuery: "",
-  };
-
-  handleSearchClick = () => {
-    this.setState((prev) => ({
-      showSearchBar: !prev.showSearchBar,
-    }));
   };
 
   handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,9 +24,36 @@ class Navbar extends React.Component<{}, NavbarState> {
     // Add your search logic here
   };
 
+  SideBar = () => {
+    return (
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+        <div className="menu min-h-full p-4 w-80">
+          <Link href="/residences">
+            <h4 className="text-default text-lg">Universities</h4>
+          </Link>
+          <Link href="/contact">
+            <h4 className="text-default text-lg">Login / Register</h4>
+          </Link>
+          <input
+            type="text"
+            value={this.state.searchQuery}
+            onChange={this.handleSearchChange}
+            className="input"
+            size={30}
+            placeholder="Search..."
+          />
+          <button onClick={this.handleSearchSubmit} className="btn btn-ghost">
+            <MdSearch className="text-default text-xl cursor-pointer z-10" />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   render() {
     return (
-      <nav className="p-5">
+      <nav className="p-5 w-full">
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -44,37 +63,38 @@ class Navbar extends React.Component<{}, NavbarState> {
                 </h3>
               </Link>
             </div>
-            <div className="flex items-center space-x-10">
-              {this.state.showSearchBar && (
-                <motion.form
-                initial={{ width: 140 }}
-                animate={{ width: this.state.showSearchBar ? 175 : 0 }}
-                transition={{ duration: 0.3 }}
-                onSubmit={this.handleSearchSubmit}
-                className="flex items-center search-bar "
-            >
+            <div className="items-center space-x-10 hidden lg:flex">
+              <div className="flex space-x-2">
                 <input
-                    type="text"
-                    value={this.state.searchQuery}
-                    onChange={this.handleSearchChange}
-                    className=" border-b-2 border-solid px-2 w-96 focus:outline-none "
-                    placeholder="Search..."
+                  type="text"
+                  value={this.state.searchQuery}
+                  onChange={this.handleSearchChange}
+                  className="input"
+                  size={30}
+                  placeholder="Search..."
                 />
-                <MdSearch
-                    className="text-default text-xl cursor-pointer"
-                    onClick={this.handleSearchSubmit}
-                />
-            </motion.form>
-              )}
-              <button onClick={this.handleSearchClick}>
-                <MdSearch className="text-default text-xl cursor-pointer z-10" />
-              </button>
+                <button
+                  onClick={this.handleSearchSubmit}
+                  className="btn btn-ghost"
+                >
+                  <MdSearch className="text-default text-xl cursor-pointer z-10" />
+                </button>
+              </div>
+
               <Link href="/residences">
                 <h4 className="text-default text-lg">Universities</h4>
               </Link>
               <Link href="/contact">
                 <h4 className="text-default text-lg">Login / Register</h4>
               </Link>
+              <div className="flex-none lg:hidden">
+                <label
+                  htmlFor="my-drawer-3"
+                  className="btn btn-square btn-ghost"
+                >
+      
+                </label>
+              </div>
             </div>
           </div>
         </div>

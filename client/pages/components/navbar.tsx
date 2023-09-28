@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { MdSearch } from "react-icons/md";
-import { motion } from "framer-motion";
 import { AiOutlineMenu } from "react-icons/ai";
 interface NavbarState {
   isMenuOpen: boolean;
@@ -26,7 +24,7 @@ class Navbar extends React.Component<{}, NavbarState> {
 
   render() {
     return (
-      <div className="drawer drawer-end">
+      <div className="drawer drawer-end fixed top-0 z-10 xl:px-80 bg-base-100">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/*main nav */}
@@ -34,35 +32,19 @@ class Navbar extends React.Component<{}, NavbarState> {
             <div className="flex items-center justify-between ">
               <div className="flex items-center space-x-4">
                 <Link href="/">
-                  <h3 className="text-default font-bold text-xl">
+                  <h3 className="text-default font-bold text-2xl">
                     Residence Rater
                   </h3>
                 </Link>
               </div>
 
               <div className="items-center space-x-10 hidden lg:flex">
-                <div className="flex space-x-2">
-                  <input
-                    type="text"
-                    value={this.state.searchQuery}
-                    onChange={this.handleSearchChange}
-                    className="input"
-                    size={30}
-                    placeholder="Search..."
-                  />
-                  <button
-                    onClick={this.handleSearchSubmit}
-                    className="btn btn-ghost"
-                  >
-                    <MdSearch className="text-default text-xl cursor-pointer z-10" />
-                  </button>
-                </div>
 
                 <Link href="/universities">
-                  <h4 className="text-default text-lg">Universities</h4>
+                  <h4 className="text-default text-xl">Universities</h4>
                 </Link>
                 <Link href="/authenticate">
-                  <h4 className="text-default text-lg">Login / Register</h4>
+                  <h4 className="text-default text-xl">Login / Register</h4>
                 </Link>
               </div>
               <div className="flex-none lg:hidden">
@@ -88,22 +70,6 @@ class Navbar extends React.Component<{}, NavbarState> {
               <Link href="/authenticate">
                 <h4 className="text-default text-lg">Login / Register</h4>
               </Link>
-              <div className="flex flex-row">
-                <input
-                  type="text"
-                  value={this.state.searchQuery}
-                  onChange={this.handleSearchChange}
-                  className="input"
-                  size={20}
-                  placeholder="Search..."
-                />
-                <button
-                  onClick={this.handleSearchSubmit}
-                  className="btn btn-ghost"
-                >
-                  <MdSearch className="text-default text-xl cursor-pointer z-10" />
-                </button>
-              </div>
             </div>
           </ul>
         </div>

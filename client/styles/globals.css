@@ -16,3 +16,21 @@
   }
 }
 
+.fadeIn {
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeLonger{
+  opacity:0;
+  animation: fadeInAnimation 1s ease-in forwards;
+}

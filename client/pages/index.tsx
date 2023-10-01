@@ -18,14 +18,14 @@ class Home extends React.Component {
         <Head>
           <title>Home | Residence Rater</title>
           <meta
-            name="landing page"
-            content="landing page for Residence Rater. Page will include a navigation bar to login or signup and find universities, as well as a button that navigates to the universities."
+            name="description"
+            content="Explore Residence Rater's landing page with a user-friendly navigation bar for easy login, signup, and university search. Find the best university accomodations and access valuable reviews. Join now to post your review!"
           />
         </Head>
         <div className="w-full fadeIn">
           {/* NAVBAR */}
           <Navbar />
-          <UniHome/>
+          <UniHome />
         </div>
       </>
     );

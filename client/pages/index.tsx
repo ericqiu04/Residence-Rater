@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import Navbar from "./components/navbar";
 import UniHome from "./components/uniHome";
-
 class Home extends React.Component {
   state = {
     showSearchBar: false,
@@ -24,7 +23,6 @@ class Home extends React.Component {
         </Head>
         <div className="w-full fadeIn">
           {/* NAVBAR */}
-          <Navbar />
           <UniHome />
         </div>
       </>

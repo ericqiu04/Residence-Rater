@@ -10,9 +10,11 @@ class Universities extends React.Component {
                     <meta
                         name = "description"
                         content = "Explore a list of universities ready for residence rating. Get insights and reviews on University accomodations"
-
                     />
                 </Head>
+                <div>
+                    
+                </div>
             </>
         )
     }

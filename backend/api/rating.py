@@ -61,4 +61,21 @@ def get_rating_ref(uni_name, res_name):
     house_ref = uni_ref.collection('residence').document(res_name.lower())
     return house_ref.collection('rating')
 
+def get_university():
+    unis = db.collection("universities").stream()
+
+    unis_data = []
+    for uni in unis:
+        u_data = uni.to_dict()
+        res_ref = uni.reference.collection("residence")
+
+        res_data = []
+        for res in res_ref.stream():
+            r_data = res.to_dict()
+            res_data.append(r_data)
+        
+        u_data["residence"] = res_data
+
+        unis_data.append(u_data)
     
+    return unis_data

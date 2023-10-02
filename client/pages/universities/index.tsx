@@ -13,7 +13,6 @@ class Universities extends React.Component {
                     />
                 </Head>
                 <div>
-                    
                 </div>
             </>
         )

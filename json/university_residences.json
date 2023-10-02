@@ -4,6 +4,7 @@
     "universities":[
         {
             "school_id": "University of Waterloo",
+            "logo":"https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/University_of_Waterloo_seal.svg/1200px-University_of_Waterloo_seal.svg.png",
             "housing":[
                 {
                     "res_name": "Village 1",
@@ -51,6 +52,7 @@
         },
         {
             "school_id": "University of Toronto STG",
+            "logo":"https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1200px-Utoronto_coa.svg.png",
             "housing":[
                 {
                     "res_name": "Chestnut Residence",

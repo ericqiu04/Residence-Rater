@@ -2,6 +2,7 @@
     "universities":[
         {
             "school_id": "",
+            "logo":"",
             "housing": [
                 {
                     "res_name": "",

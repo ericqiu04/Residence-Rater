@@ -4,7 +4,7 @@ class UniHome extends React.Component {
   render() {
     return (
       <>
-        <div className="container mt-20">
+        <div className="container">
           <div
             className="relative bg-cover h-[80vh] bg-center w-screen"
             style={{
@@ -12,14 +12,14 @@ class UniHome extends React.Component {
             }}
           >
             <div
-              className="h-[80vh] absolute inset-0 bg-cyan-950 opacity-60"
+              className="h-[80vh] absolute inset-0 bg-base-950 opacity-60"
               style={{
                 mixBlendMode: "multiply",
               }}
             ></div>
             <div className="absolute inset-0 flex items-center justify-center md:justify-start md:ml-10">
               <div className="w-3/4 xl:w-1/2 2xl:w-1/3">
-                <h1 className="text-default text-4xl bold">
+                <h1 className="text-white text-4xl bold">
                   Read Reviews. Write Reviews. Find the best residence for you.
                 </h1>
                 <div className="relative flex items-center mt-4 w-full">
@@ -28,7 +28,7 @@ class UniHome extends React.Component {
                     className="w-full bg-base-100 rounded-lg py-5 px-4 focus:outline-none"
                     placeholder="Search University"
                   />
-                  <button className="hidden md:flex btn absolute right-3 bg-cyan-800 py-4">
+                  <button className="hidden md:flex btn absolute right-3 bg-cyan-400 py-4">
                     Search
                   </button>
                   <button className = "md:hidden btn absolute right-3 bg-cyan-800">

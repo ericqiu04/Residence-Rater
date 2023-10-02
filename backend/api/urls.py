@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views, rating
 from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
@@ -9,5 +9,6 @@ urlpatterns = [
     path('user/<str:username>/', csrf_exempt(views.user_profiles), name = "user_profiles"),
     path('create_rating/<str:university>/<str:residence_name>/', views.create_rating, name = "create_rating"),
     path('update_rating/<str:university>/<str:residence_name>/', views.update_rating, name = "update_rating"),
-    path('delete_rating/<str:university>/<str:residence_name>/', views.delete_rating, name = "delete_rating")
+    path('delete_rating/<str:university>/<str:residence_name>/', views.delete_rating, name = "delete_rating"),
+    path('get_universtiy/', rating.get_university, name = "get_university")
 ]

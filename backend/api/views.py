@@ -1,3 +1,4 @@
+import corsheaders
 from django.shortcuts import render
 from django.db import models
 from django.http import HttpResponse, JsonResponse
@@ -11,7 +12,7 @@ from .authentication import register, login, get_user, update_user, delete_data
 from .rating import create_review, update_review, delete_review
 
 def hello_world(request):
-    return HttpResponse("working")
+    return JsonResponse({"message": "Hello, world!"})
 
 
 def user_register(request):

@@ -10,5 +10,5 @@ urlpatterns = [
     path('create_rating/<str:university>/<str:residence_name>/', views.create_rating, name = "create_rating"),
     path('update_rating/<str:university>/<str:residence_name>/', views.update_rating, name = "update_rating"),
     path('delete_rating/<str:university>/<str:residence_name>/', views.delete_rating, name = "delete_rating"),
-    path('get_universtiy/', rating.get_university, name = "get_university")
+    path('get_university/', rating.get_university, name = "get_university")
 ]

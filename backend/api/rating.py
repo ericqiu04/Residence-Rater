@@ -78,4 +78,5 @@ def get_university(request):
 
         unis_data.append(u_data)
     
+    print(unis_data)
     return JsonResponse({"universities": unis_data})

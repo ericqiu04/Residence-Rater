@@ -10,37 +10,43 @@
                     "res_name": "Village 1",
                     "price":"$2,841 - 4,263 Per Term",
                     "style":"Traditional",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/v1"
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/v1",
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-0083.jpg?itok=jJ57OK6P"
                 },
                 {
                     "res_name": "Ron Edyt Village",
                     "price":"$2,549 - 3,824 Per Term",
                     "style":"Traditional",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/rev"
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/rev",
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/revhero.jpg?itok=TUnn44gG"
                 },
                 {
                     "res_name": "Claudette Millar Hall",
                     "price":"$2,970 - 4,676 Per Term",
                     "style":"Traditional",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/claudette-millar-hall"
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/claudette-millar-hall",
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/_dsc6566-pano_sm_1.jpg?itok=SZoxOZYU"
                 },
                 {
                     "res_name": "Mackenzie King Village",
                     "price":"$3,393 - 5,088 Per Term",
                     "style":"Suite",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/mkv"
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/mkv",
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9406.jpg?itok=smOK0B3n"
                 },
                 {
                     "res_name": "UW Place",
                     "price":"$2,677 - 4,597 Per Term",
                     "style":"Suite",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/uwp"
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/uwp",
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwphero.jpg?itok=tT8xmcSk"
                 },
                 {
                     "res_name": "Columbia Lake Village - South",
                     "price":"$2,710 - 4,065 Per Term",
                     "style":"Suite",
-                    "rLink":"https://uwaterloo.ca/campus-housing/residences/columbia-lake-village/columbia-lake-village-south"
+                    "rLink":"https://uwaterloo.ca/campus-housing/residences/columbia-lake-village/columbia-lake-village-south",
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clvhero.jpg?itok=xplDff-E"
                 }
             ]
         },
@@ -52,19 +58,22 @@
                     "res_name": "Chestnut Residence",
                     "price":"$17,635.22 - 21,567.22 Per Year",
                     "style":"Traditional Dormitory",
-                    "rLink":"https://chestnut.utoronto.ca/"
+                    "rLink":"https://chestnut.utoronto.ca/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name": "Innis College",
                     "price":"$11,016 Per Year",
                     "style":"Shared Appartment",
-                    "rLink":"https://innis.utoronto.ca/residence/about-the-residence/"
+                    "rLink":"https://innis.utoronto.ca/residence/about-the-residence/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name": "New College",
                     "price":"$15,945 - 17,370 Per Year",
                     "style":"Dormitory",
-                    "rLink":"http://www.newcollege.utoronto.ca/current-students/residence-at-new-college/"
+                    "rLink":"http://www.newcollege.utoronto.ca/current-students/residence-at-new-college/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name": "St. Michael's College",
@@ -76,32 +85,37 @@
                     "res_name": "Loretto College",
                     "price":"$15,945 - 15,550",
                     "style":"Dormitory",
-                    "rLink":"https://stmikes.utoronto.ca/community/loretto-college-residence-women"
+                    "rLink":"https://stmikes.utoronto.ca/community/loretto-college-residence-women",
+                    "resCoverImage":""
                     
                 },
                 {
                     "res_name": "Trinity College",
                     "price":"$16,120 - 17,520 Per Year",
                     "style":" Dormitory",
-                    "rLink":"https://www.trinity.utoronto.ca/engage/residence/"
+                    "rLink":"https://www.trinity.utoronto.ca/engage/residence/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name": "University College",
                     "price":"$14,719 - 16,333 Per Year",
                     "style":"Dormitory",
-                    "rLink":"http://www.uc.utoronto.ca/housing"
+                    "rLink":"http://www.uc.utoronto.ca/housing",
+                    "resCoverImage":""
                 },
                 {
                     "res_name": "Victoria College",
                     "price":"$12,714.74 - 17,936.74 Per Year",
                     "style":"Dormitory + Shared Apartment",
-                    "rLink":"https://www.vic.utoronto.ca/current-students/residence-life/"
+                    "rLink":"https://www.vic.utoronto.ca/current-students/residence-life/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name": "Woodsworth College",
                     "price":"$11,203 Per Year",
                     "style":"Private + Shared Apartment",
-                    "rLink":"http://www.wdw.utoronto.ca/index.php/new_students/residence/"
+                    "rLink":"http://www.wdw.utoronto.ca/index.php/new_students/residence/",
+                    "resCoverImage":""
                 }
             ]
         },
@@ -113,73 +127,85 @@
                     "res_name":"Bates Residence",
                     "price":"$9750 per year",
                     "style":"Apartment",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Brandon Hall",
                     "price":"$8350 - 9300 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Edwards Hall",
                     "price":"$8350 - 10100 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Hedden Hall",
                     "price":"$6250 - 10100 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Les Prince Hall",
                     "price":"$9000 - 10100 per year",
                     "style":"",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Mary E. Keyes Residence",
                     "price":"$10500 per year",
                     "style":"Suite",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Matthews Hall",
                     "price":"$6250 - 10100 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"McKay Hall",
                     "price":"$6250 - 10100 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Moulton Hall",
                     "price":"$6250 - 9300 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Wallingford Hall",
                     "price":"$6250 - 9300 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Whidden Hall",
                     "price":"$8350 - 9300 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 },
                 {
                     "res_name":"Woodstock Hall",
                     "price":"$6250 - 9300 per year",
                     "style":"Traditional",
-                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/"
+                    "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
+                    "resCoverImage":""
                 }
             ]
         }

@@ -54,10 +54,14 @@ def average_rating(uni_name, res_name):
     
     if total_rating > 0:
         average = total_rating / num_rating
-        house_ref.set({
-            'average rating': average
+        house_ref.update({
+            'average rating': average + '/ 5.0'
         })
-
+    
+    else:
+        house_ref.update({
+            'average rating': total_rating + '/ 5.0'
+        })
 def get_rating_ref(uni_name, res_name):
     uni_ref = user_ref.document(uni_name.lower())
     house_ref = uni_ref.collection('residence').document(res_name.lower())

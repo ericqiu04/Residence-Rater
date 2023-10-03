@@ -56,7 +56,7 @@ class Residences extends React.Component<Props, State> {
       <div className = "flex justify-center">
         <h1 className="text-4xl font-bold">{uniName} Residences</h1>
         {residences.map((res, index) => (
-          <ResProp/>
+          <ResProp resName = {res.resName} resImageLink={res.imageLink}/>
         ))}
       </div>
     );

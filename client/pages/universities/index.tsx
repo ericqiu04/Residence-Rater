@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import axios from "axios";
-import UniProp from "../components/uniProp";
+import UniProp from "../../components/uniProp";
 
 type UniversityDataState = {
   universities: Array<{ name: string; logo: string; residences: any }>;
@@ -38,13 +38,6 @@ class Universities extends React.Component<{}, UniversityDataState> {
     console.log(message);
     return (
       <>
-        <Head>
-          <title>Universities | Residence Rater</title>
-          <meta
-            name="description"
-            content="Explore a list of universities ready for residence rating. Get insights and reviews on University accomodations"
-          />
-        </Head>
        
           <div className="flex flex-col w-4/5 mx-auto items-center justify-center p-10 space-y-10 sm:space-y-0 sm:space-x-10 sm:flex-row fadeLonger">
           {universities.map((uni, index) => (

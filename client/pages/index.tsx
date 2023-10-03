@@ -1,8 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-import Navbar from "./components/navbar";
-import UniHome from "./components/uniHome";
+import UniHome from "@/components/uniHome";
 class Home extends React.Component {
   state = {
     showSearchBar: false,

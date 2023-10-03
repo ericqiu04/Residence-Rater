@@ -46,7 +46,6 @@ class Universities extends React.Component<{}, UniversityDataState> {
                   key={index}
                   name={uni.name}
                   logo={uni.logo}
-                  residences={uni.residences}
                 />
               </>
             ))}

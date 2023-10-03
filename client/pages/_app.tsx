@@ -5,7 +5,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
       <Navbar />
-      <div className = "mt-20">
+      <div className = "mt-32 px-10">
         <Component {...pageProps} />
       </div>
     </div>

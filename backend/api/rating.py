@@ -1,3 +1,5 @@
+import json
+
 from firebase_admin import credentials, firestore
 from django.http import JsonResponse
 cred = credentials.Certificate("../credentials/serviceAccountKey.json")
@@ -62,21 +64,23 @@ def get_rating_ref(uni_name, res_name):
     return house_ref.collection('rating')
 
 def get_university(request):
-    unis = db.collection("universities").stream()
+    unis = user_ref.stream()
 
     unis_data = []
     for uni in unis:
         u_data = uni.to_dict()
-        res_ref = uni.reference.collection("residence")
-
-        res_data = []
-        for res in res_ref.stream():
-            r_data = res.to_dict()
-            res_data.append(r_data)
-        
-        u_data["residence"] = res_data
-
         unis_data.append(u_data)
     
     print(unis_data)
     return JsonResponse({"universities": unis_data})
+
+def get_residences(request, university):
+    uni_ref = user_ref.document(university.lower())
+    residences = uni_ref.collection('residence').stream()
+
+    residence_data = []
+    for res in residences:
+        res_data = res.to_dict()
+        residence_data.append(res_data)
+
+    return JsonResponse({'residences': residence_data})

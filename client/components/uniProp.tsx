@@ -5,7 +5,6 @@ interface university {
   key: number;
   name: string;
   logo: string;
-  residences: any[];
 }
 
 class UniProp extends React.Component<university> {

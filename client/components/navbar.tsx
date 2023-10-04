@@ -24,7 +24,7 @@ class Navbar extends React.Component<{}, NavbarState> {
 
   render() {
     return (
-      <div className="drawer drawer-end fixed top-0 z-10 xl:px-80 bg-base-100">
+      <div className="drawer drawer-end fixed top-0 z-10 xl:px-48 bg-base-100">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/*main nav */}

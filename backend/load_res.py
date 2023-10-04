@@ -44,7 +44,7 @@ with open("../json/university_residences.json", "r") as json_file:
                     "style": res["style"],
                     "link": res["rLink"],
                     "imageLink": res['resCoverImage'],
-                    "rating": average_rating + ' / 5.0'
+                    "rating": str(average_rating) + ' / 5.0'
                 }
             )
             rating_ref = res_ref.collection("rating")

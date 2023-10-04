@@ -53,11 +53,18 @@ class Residences extends React.Component<Props, State> {
   render() {
     const { uniName, residences } = this.state;
     return (
-      <div className = "flex justify-center">
-        <h1 className="text-4xl font-bold">{uniName} Residences</h1>
-        {residences.map((res, index) => (
-          <ResProp resName = {res.resName} resImageLink={res.imageLink}/>
-        ))}
+      <div className="">
+        <h1 className="text-center text-4xl font-bold">{uniName} Residences</h1>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mx-auto fadeLonger w-4/5 p-16">
+          {residences.map((res, index) => (
+            <ResProp
+              resName={res.resName}
+              resImageLink={res.imageLink}
+              rating={res.rating}
+            />
+          ))}
+        </div>
       </div>
     );
   }

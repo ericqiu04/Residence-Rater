@@ -79,7 +79,8 @@
                     "res_name": "St. Michael's College",
                     "price":"$15,889 - 18,162 Per Year",
                     "style":"Dormitory",
-                    "rLink":"https://stmikes.utoronto.ca/community/st-michaels-college-residence"
+                    "rLink":"https://stmikes.utoronto.ca/community/st-michaels-college-residence",
+                    "resCoverImage":""
                 },
                 {
                     "res_name": "Loretto College",

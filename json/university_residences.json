@@ -11,42 +11,138 @@
                     "price":"$2,841 - 4,263 Per Term",
                     "style":"Traditional",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/v1",
-                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-0083.jpg?itok=jJ57OK6P"
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-0083.jpg?itok=jJ57OK6P",
+                    "images": [
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-8879.jpg?itok=gIKepOSA",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-8872.jpg?itok=GWyzafbr",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-8884.jpg?itok=p_eGeFDH",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/v1-6.jpg?itok=xdARP_LS",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-8890.jpg?itok=G-Es_WpD",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-8897.jpg?itok=_1vImutw",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-8927.jpg?itok=bL40_OWC",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/v1-9.jpg?itok=B8FtHUPS",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clc_3197.jpg?itok=Ba82jojw",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clc_3767.jpg?itok=Qieo5vMY",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clc_3582.jpg?itok=Z01qvpF_",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1541.jpg?itok=EaW0PgfP",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/v1-14.jpg?itok=COsyDgMA",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/v1-15.jpg?itok=vigrobXk"
+                    ]
                 },
                 {
                     "res_name": "Ron Edyt Village",
                     "price":"$2,549 - 3,824 Per Term",
                     "style":"Traditional",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/rev",
-                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/revhero.jpg?itok=TUnn44gG"
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/revhero.jpg?itok=TUnn44gG",
+                    "images": [
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9557_0.jpg?itok=RT8pGKnz",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9559.jpg?itok=ecJYRglY",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9587_0.jpg?itok=GfDAYVIW",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9539.jpg?itok=ffo35z1Z",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9542.jpg?itok=yNT7OFG3",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9548.jpg?itok=lr6QvCRd",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/rev-7.jpg?itok=gMGff7rW",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/rev-6.jpg?itok=r0kuknFz",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/rev-9.jpg?itok=G1fAuB1L",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/rev-10.jpg?itok=sVz_IxtB",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/rev-11.jpg?itok=XhZXswcH",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/rev-12.jpg?itok=GCO6wMhP",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/rev-13.jpg?itok=Uo7jDwWi"
+                    ]
                 },
                 {
                     "res_name": "Claudette Millar Hall",
                     "price":"$2,970 - 4,676 Per Term",
                     "style":"Traditional",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/claudette-millar-hall",
-                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/_dsc6566-pano_sm_1.jpg?itok=SZoxOZYU"
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/_dsc6566-pano_sm_1.jpg?itok=SZoxOZYU",
+                    "images": [
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26136.jpg?itok=2XWb0VbP",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1419.jpg?itok=LWg-BfPH",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1407.jpg?itok=3cMC8c0L",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/newrez18.jpg?itok=wbYE25on",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/newrez19.jpg?itok=dvmg-I1A",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/newrez20.jpg?itok=B3lL-j5T",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26124.jpg?itok=rI7lFhbq",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1390.jpg?itok=rAC9dW4_'",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1391.jpg?itok=3thLVt0e",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1396.jpg?itok=dgdFb91K",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1444.jpg?itok=fooHhYSo",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-25883.jpg?itok=iQb-WL6B",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-25900.jpg?itok=6zhZbPDu",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-25929.jpg?itok=bECKM7s6",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26014.jpg?itok=M5HXZAat",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-25972.jpg?itok=kq6UvFf5",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1429.jpg?itok=GIvlTeHv",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1436.jpg?itok=Ne3_OQku",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1425.jpg?itok=1QtD9Roy",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/img_1426.jpg?itok=20L1uDjT"
+                    ]
                 },
                 {
                     "res_name": "Mackenzie King Village",
                     "price":"$3,393 - 5,088 Per Term",
                     "style":"Suite",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/mkv",
-                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9406.jpg?itok=smOK0B3n"
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9406.jpg?itok=smOK0B3n",
+                    "images": [
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9077.jpg?itok=dhywSVZm",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9083.jpg?itok=rvzTxG6F",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9098.jpg?itok=aO-hMUbk",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220519-9090.jpg?itok=LaHZ5sJa",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/mkv-12.jpg?itok=LpfT3VXP",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/mkv-15.jpg?itok=6MZ3DuoG",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/mkv-14.jpg?itok=SIZtMjji",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/mkv-13.jpg?itok=RqjB9t_O"
+                    ]
                 },
                 {
                     "res_name": "UW Place",
                     "price":"$2,677 - 4,597 Per Term",
                     "style":"Suite",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/uwp",
-                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwphero.jpg?itok=tT8xmcSk"
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwphero.jpg?itok=tT8xmcSk",
+                    "images": [
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0252.jpg?itok=p59N6Nxp",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0255.jpg?itok=RzhGVoAK",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0262.jpg?itok=mXdjcvqS",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0109.jpg?itok=3NUVqAYf",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0117.jpg?itok=9doRW5D4",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0102.jpg?itok=yPCyU6YW",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0103.jpg?itok=cSeCUlik",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0330.jpg?itok=sk82PeYW",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0334.jpg?itok=ZA0EKBvR",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/campus_housing-220520-0340.jpg?itok=BAfboc2S",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwp-8.jpg?itok=wUujRwQJ",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwp-12.jpg?itok=8VsXf4OD",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwp-13.jpg?itok=kHjF8Pvy",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwp-15.jpg?itok=D0fbtDxj",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/uwp-16.jpg?itok=N0cB4Djo"
+                    ]
                 },
                 {
                     "res_name": "Columbia Lake Village - South",
                     "price":"$2,710 - 4,065 Per Term",
                     "style":"Suite",
                     "rLink":"https://uwaterloo.ca/campus-housing/residences/columbia-lake-village/columbia-lake-village-south",
-                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clvhero.jpg?itok=xplDff-E"
+                    "resCoverImage":"https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clvhero.jpg?itok=xplDff-E",
+                    "images": [
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26889.jpg?itok=iThDsgas",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-25883.jpg?itok=iQb-WL6B",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26902.jpg?itok=aokwPO0Q",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-27003.jpg?itok=t3AADzMZ",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26999.jpg?itok=Xa4AvJ4f",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26909.jpg?itok=nfda-he4",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26906.jpg?itok=jEFL16MP",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26752_1.jpg?itok=60Dnz1Kg",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26757_0.jpg?itok=DtZ2ShqQ",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clvs-10.jpg?itok=eqgE10L9",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26742.jpg?itok=Csd-UB4f",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26739.jpg?itok=k3-uqa5T",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/clvs-11.jpg?itok=EtKNGTah",
+                        "https://uwaterloo.ca/campus-housing/sites/default/files/styles/uw_is_ig_x_large/public/uploads/images/22-10-28-f22-campus-housing-26483.jpg?itok=T4jZvV7x"
+                    ]
                 }
             ]
         },
@@ -59,35 +155,45 @@
                     "price":"$17,635.22 - 21,567.22 Per Year",
                     "style":"Traditional Dormitory",
                     "rLink":"https://chestnut.utoronto.ca/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name": "Innis College",
                     "price":"$11,016 Per Year",
                     "style":"Shared Appartment",
                     "rLink":"https://innis.utoronto.ca/residence/about-the-residence/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name": "New College",
                     "price":"$15,945 - 17,370 Per Year",
                     "style":"Dormitory",
                     "rLink":"http://www.newcollege.utoronto.ca/current-students/residence-at-new-college/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name": "St. Michael's College",
                     "price":"$15,889 - 18,162 Per Year",
                     "style":"Dormitory",
                     "rLink":"https://stmikes.utoronto.ca/community/st-michaels-college-residence",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name": "Loretto College",
                     "price":"$15,945 - 15,550",
                     "style":"Dormitory",
                     "rLink":"https://stmikes.utoronto.ca/community/loretto-college-residence-women",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                     
                 },
                 {
@@ -95,28 +201,36 @@
                     "price":"$16,120 - 17,520 Per Year",
                     "style":" Dormitory",
                     "rLink":"https://www.trinity.utoronto.ca/engage/residence/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name": "University College",
                     "price":"$14,719 - 16,333 Per Year",
                     "style":"Dormitory",
                     "rLink":"http://www.uc.utoronto.ca/housing",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name": "Victoria College",
                     "price":"$12,714.74 - 17,936.74 Per Year",
                     "style":"Dormitory + Shared Apartment",
                     "rLink":"https://www.vic.utoronto.ca/current-students/residence-life/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name": "Woodsworth College",
                     "price":"$11,203 Per Year",
                     "style":"Private + Shared Apartment",
                     "rLink":"http://www.wdw.utoronto.ca/index.php/new_students/residence/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 }
             ]
         },
@@ -129,84 +243,107 @@
                     "price":"$9750 per year",
                     "style":"Apartment",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Brandon Hall",
                     "price":"$8350 - 9300 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Edwards Hall",
                     "price":"$8350 - 10100 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Hedden Hall",
                     "price":"$6250 - 10100 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Les Prince Hall",
                     "price":"$9000 - 10100 per year",
                     "style":"",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Mary E. Keyes Residence",
                     "price":"$10500 per year",
                     "style":"Suite",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Matthews Hall",
                     "price":"$6250 - 10100 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"McKay Hall",
                     "price":"$6250 - 10100 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Moulton Hall",
                     "price":"$6250 - 9300 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Wallingford Hall",
                     "price":"$6250 - 9300 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Whidden Hall",
                     "price":"$8350 - 9300 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
+
                 },
                 {
                     "res_name":"Woodstock Hall",
                     "price":"$6250 - 9300 per year",
                     "style":"Traditional",
                     "rLink":"https://housing.mcmaster.ca/future-residents/buildings/",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
                 }
             ]
         }

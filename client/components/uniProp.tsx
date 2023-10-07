@@ -16,7 +16,7 @@ class UniProp extends React.Component<university> {
     const { name } = this.props;
     return (
       <>
-        <Link href="/universities/[name]/residences" as={`/universities/${encodeURIComponent(name)}/residences`}>
+        <Link href="/universities/[uniName]/residences" as={`/universities/${encodeURIComponent(name)}/residences`}>
 
           <motion.div
             className="card bg-base-100 p-10 md:p-2 w-60 h-60 md:w-60 md:h-60 shadow-xl"

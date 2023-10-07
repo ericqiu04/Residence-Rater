@@ -10,7 +10,8 @@
                     "price":"",
                     "style":"",
                     "rLink":"",
-                    "resCoverImage":""
+                    "resCoverImage":"",
+                    "images":[]
                 }
             ]
         }

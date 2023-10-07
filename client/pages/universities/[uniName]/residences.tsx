@@ -2,7 +2,6 @@ import React from "react";
 import { withRouter, NextRouter } from "next/router";
 import Cookies from "js-cookie";
 import axios from "axios";
-
 import ResProp from "@/components/resProp";
 
 type State = {
@@ -27,17 +26,18 @@ class Residences extends React.Component<Props, State> {
   }
 
   async componentDidMount() {
-    const { name } = this.props.router.query;
-    if (name) {
-      const decodedName =
-        typeof name === "string" ? decodeURIComponent(name) : "";
-      this.setState({ uniName: decodedName });
+    const { router } = this.props;
+    const { uni } = router.query;
 
-      Cookies.set("uniName", decodedName);
+    const uniName = Array.isArray(uni) ? uni[0] : uni;
+    if (uniName) {
+      this.setState({ uniName});
+      Cookies.set("uniName", uniName);
     } else {
-      const storedUniName = Cookies.get("uniName");
+      const storedUniName = Cookies.get('uniName');
+
       if (storedUniName) {
-        this.setState({ uniName: storedUniName });
+        this.setState({ uniName: storedUniName});
       }
     }
     try {
@@ -59,9 +59,11 @@ class Residences extends React.Component<Props, State> {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mx-auto fadeLonger w-4/5 p-16">
           {residences.map((res, index) => (
             <ResProp
+              key={index}
               resName={res.resName}
               resImageLink={res.imageLink}
               rating={res.rating}
+              uniName = {uniName}
             />
           ))}
         </div>

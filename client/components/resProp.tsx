@@ -6,6 +6,7 @@ interface resProp {
   resName: string;
   resImageLink: any;
   rating: string;
+  uniName: string;
 }
 
 class ResProp extends Component<resProp, {}> {
@@ -14,7 +15,7 @@ class ResProp extends Component<resProp, {}> {
   }
 
   render() {
-    const { resName, resImageLink, rating } = this.props;
+    const { uniName, resName, resImageLink, rating } = this.props;
 
     const overlayStyles = {
       position: "absolute",
@@ -32,7 +33,7 @@ class ResProp extends Component<resProp, {}> {
     };
 
     return (
-      <>
+      <Link href = "/universities/[uniName]/residences/[resName]" as={`/universities/${encodeURIComponent(uniName)}/residences/${encodeURIComponent(resName)}`}>
         <motion.div
           className="card lg:card-side bg-base-100 w-full shadow-xl"
           whileHover={{ scale: 1.05 }}
@@ -46,7 +47,7 @@ class ResProp extends Component<resProp, {}> {
             <h2 className="text-xl">Rating: {rating}</h2>
           </div>
         </motion.div>
-      </>
+      </Link>
     );
   }
 }

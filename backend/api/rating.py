@@ -88,3 +88,9 @@ def get_residences(request, university):
         residence_data.append(res_data)
 
     return JsonResponse({'residences': residence_data})
+
+def get_residence_info(request, university, residence):
+    res_ref = user_ref.document(univeristy.lower()).collection('residences').document(residence.lower()).to_dict()
+
+    return Jsonresponse({'residenceInfo': res_ref})    
+

@@ -11,19 +11,11 @@ db = firestore.client()
 with open("../json/university_residences.json", "r") as json_file:
     data = json.load(json_file)
     for uni in data["universities"]:
-        print('1')
         school_id = uni["school_id"]
-        print('2')
         res_data = uni["housing"]
-        print('3')
-        school_ref = db.collection("university").document(school_id.lower())
-        print('4')
-        print(uni['logo'])
-        print(school_id)
+        school_ref = db.collection("universities").document(school_id.lower())
         school_ref.set({"name": school_id, "logo": uni["logo"]})
-        print('set')
         house_ref = school_ref.collection("residence")
-        print(house_ref)
 
         for res in res_data:
             total_rating = 0
@@ -40,6 +32,7 @@ with open("../json/university_residences.json", "r") as json_file:
                     total_rating += rating
                     num_rating += 1
 
+            
 
             if (num_rating):
                 average_rating = round(total_rating / num_rating, 1)
@@ -52,7 +45,8 @@ with open("../json/university_residences.json", "r") as json_file:
                     "style": res["style"],
                     "link": res["rLink"],
                     "imageLink": res['resCoverImage'],
-                    "rating": str(average_rating) + ' / 5.0'
+                    "rating": str(average_rating) + ' / 5.0',
+                    "images":res['images']
                 }
             )
             rating_ref = res_ref.collection("rating")

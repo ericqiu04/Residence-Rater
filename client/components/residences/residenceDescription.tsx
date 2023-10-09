@@ -14,7 +14,7 @@ class ResidenceDescription extends Component<resDescProps, {}> {
         return(
             <>
                 <div className = " justify-start text-customDefault">
-                    <div className = "grid grid-cols-3 text-xl gap-0">
+                    <div className ="flex flex-row space-x-3 lg:space-x-0 lg:grid lg:grid-cols-3 lg:text-lg xl:text-xl gap-0">
                         <div className = "font-bold space-y-3">
                             <h4>Price:</h4>
                             <h4>Rating:</h4>

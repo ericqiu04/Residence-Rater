@@ -66,15 +66,14 @@ class ResInfo extends Component<ResProps, ResState> {
   render() {
     const { uniName, resName, residenceInfo } = this.state;
     return (
-      <div className = "p-10">
+      <div className = "p-5">
         <div className = "flex justify-center md:mb-20">
           <h1 className="text-customDefault text-3xl font-bold">{resName}</h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4">
-          <div className = "md:col-span-3">
-            adslj
+        <div className="flex flex-row">
+          <div className = "w-3/5">
           </div>
-          <div className = "md:col-span-1">
+          <div className = "w-2/5">
             <ResidenceDescription
               pricing={residenceInfo.price}
               style={residenceInfo.style}

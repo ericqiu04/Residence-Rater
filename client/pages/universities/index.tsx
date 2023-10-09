@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import axios from "axios";
-import UniProp from "../../components/uniProp";
+import UniProp from "../../components/university/uniProp";
 
 type UniversityDataState = {
   universities: Array<{ name: string; logo: string; residences: any }>;

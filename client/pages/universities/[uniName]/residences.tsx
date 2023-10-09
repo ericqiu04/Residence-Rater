@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter, NextRouter } from "next/router";
 import Cookies from "js-cookie";
 import axios from "axios";
-import ResProp from "@/components/resProp";
+import ResProp from "@/components/residences/resProp";
 
 type State = {
   uniName: string;

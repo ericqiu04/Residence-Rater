@@ -2,11 +2,12 @@ import { Component } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter, withRouter, NextRouter } from "next/router";
+import ResidenceDescription from "@/components/residences/residenceDescription";
 
 type ResState = {
   uniName: string | string[];
   resName: string | string[];
-  residenceInfo: any[];
+  residenceInfo: any;
 };
 
 type ResProps = {
@@ -39,36 +40,48 @@ class ResInfo extends Component<ResProps, ResState> {
       Cookies.set("uniName", storeUniName);
       Cookies.set("resName", storeResName);
     } else {
-      const storedUniName = Cookies.get('uniName');
-      const storedResName = Cookies.get('resName')
+      const storedUniName = Cookies.get("uniName");
+      const storedResName = Cookies.get("resName");
 
       if (storedUniName && storedResName) {
         this.setState({ uniName: storedUniName, resName: storedResName });
       }
     }
-    
+
     try {
-      const uniName = Cookies.get('uniName')
-      const resName = Cookies.get('resName')
-      console.log(uniName)
-      console.log(resName)
-      const response = await this.api.get(`api/get_residence_info/${uniName}/${resName}`);
-      const residenceInfo = response.data.residenceInfo
-      this.setState({residenceInfo})
-      console.log({residenceInfo})
-      console.log('success')
-    }
-    catch(e) {
-      console.log('failed to retrieve residence info')
+      const uniName = Cookies.get("uniName");
+      const resName = Cookies.get("resName");
+      console.log(uniName);
+      console.log(resName);
+      const response = await this.api.get(
+        `api/get_residence_info/${uniName}/${resName}`
+      );
+      const residenceInfo = response.data.residenceInfo;
+      this.setState({ residenceInfo });
+    } catch (e) {
+      console.log("failed to retrieve residence info");
     }
   }
 
   render() {
-    const { uniName, resName } = this.state;
+    const { uniName, resName, residenceInfo } = this.state;
     return (
-      <div className="">
-        <h1 className="text-xl">{uniName}</h1>
-        <h2 className="text-lg">{resName}</h2>
+      <div className = "p-10">
+        <div className = "flex justify-center md:mb-20">
+          <h1 className="text-customDefault text-3xl font-bold">{resName}</h1>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4">
+          <div className = "md:col-span-3">
+            adslj
+          </div>
+          <div className = "md:col-span-1">
+            <ResidenceDescription
+              pricing={residenceInfo.price}
+              style={residenceInfo.style}
+              rating={residenceInfo.rating}
+            />
+          </div>
+        </div>
       </div>
     );
   }

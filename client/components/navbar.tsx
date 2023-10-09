@@ -68,7 +68,7 @@ class Navbar extends React.Component<{}, NavbarState> {
                 <h4 className="text-default text-lg">Universities</h4>
               </Link>
               <Link href="/authenticate">
-                <h4 className="text-default text-lg">Login / Register</h4>
+                <h4 className="text-default text-lg">Login | Register</h4>
               </Link>
             </div>
           </ul>

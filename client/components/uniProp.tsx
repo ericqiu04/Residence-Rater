@@ -14,6 +14,7 @@ class UniProp extends React.Component<university> {
 
   render() {
     const { name } = this.props;
+    console.log(name)
     return (
       <>
         <Link href="/universities/[uniName]/residences" as={`/universities/${encodeURIComponent(name)}/residences`}>

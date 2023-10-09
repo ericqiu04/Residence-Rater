@@ -27,12 +27,11 @@ class Residences extends React.Component<Props, State> {
 
   async componentDidMount() {
     const { router } = this.props;
-    const { uni } = router.query;
-
-    const uniName = Array.isArray(uni) ? uni[0] : uni;
-    if (uniName) {
-      this.setState({ uniName});
-      Cookies.set("uniName", uniName);
+    const { uniName } = router.query;
+    const storeUniName = Array.isArray(uniName) ? uniName[0] : uniName;
+    if (storeUniName) {
+      this.setState({uniName: storeUniName});
+      Cookies.set("uniName", storeUniName);
     } else {
       const storedUniName = Cookies.get('uniName');
 
@@ -55,7 +54,6 @@ class Residences extends React.Component<Props, State> {
     return (
       <div className="">
         <h1 className="text-center text-4xl font-bold">{uniName} Residences</h1>
-        
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mx-auto fadeLonger w-4/5 p-16">
           {residences.map((res, index) => (
             <ResProp

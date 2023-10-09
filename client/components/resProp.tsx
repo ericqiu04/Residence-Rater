@@ -17,21 +17,6 @@ class ResProp extends Component<resProp, {}> {
   render() {
     const { uniName, resName, resImageLink, rating } = this.props;
 
-    const overlayStyles = {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      background: "rgba(0, 0, 0, 0.5)",
-      color: "#fff",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      opacity: 0,
-      transition: "opacity 0.2s ease-in-out",
-    };
-
     return (
       <Link href = "/universities/[uniName]/residences/[resName]" as={`/universities/${encodeURIComponent(uniName)}/residences/${encodeURIComponent(resName)}`}>
         <motion.div

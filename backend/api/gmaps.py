@@ -6,11 +6,15 @@ def get_api_key():
         data = json.load(file)
         return data.get('api_key')
 
+def get_key(request):
+    key = get_api_key()
+    return JsonResponse({'key': key})
 
 def get_location(request, residence_name):
     try:
         api_key = get_api_key()  # Make sure this function returns the correct API key.
         gmaps = googlemaps.Client(key=api_key)
+        print(api_key)
         
         result = gmaps.geocode(residence_name.lower())
 

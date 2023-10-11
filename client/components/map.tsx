@@ -8,7 +8,7 @@ type googleMapProps = {
 type state = {
     key: string;
 }
-class Map extends Component<googleMapProps, {}> {
+class Map extends Component<googleMapProps, state> {
     api:any
     constructor(props:googleMapProps) {
         super(props)
@@ -22,16 +22,19 @@ class Map extends Component<googleMapProps, {}> {
 
     async componentDidMount() {
         try{
-            const response = this.api.get('/api/get_api_key')
+            const response = this.api.get('/api/get_key/')
             const key = response.data.key
+            console.log(key)
             this.setState({key})
         }
         catch {}
     }
   render() {
+    const {key} = this.state
+    console.log(key)
     const { address, location } = this.props;
     return (
-      <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string}>
+      <LoadScript googleMapsApiKey={key}>
         <GoogleMap
           zoom={10}
           center={location}

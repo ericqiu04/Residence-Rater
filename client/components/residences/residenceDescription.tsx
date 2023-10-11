@@ -1,7 +1,8 @@
 import {Component} from 'react'
-import Rating from '../rating'
+import Rating from '@/components/rating'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import Map from '@/components/map'
 type resDescProps = {
     residence: string | string[]
     pricing: string | string[]
@@ -34,6 +35,7 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
                 console.log(response)
                 const address = response.data.address
                 const location = response.data.location
+                console.log(location)
                 this.setState({address: address})
                 Cookies.set('address', address)
                 Cookies.set('location', location)
@@ -45,14 +47,14 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
         }
         else {
             const address = Cookies.get('address') || ""
-            const location = Cookies.get('location') || ""
+            const location = Cookies.get('location') || {}
             this.setState({address, location})
         }
 
     }
 
     render(){
-        const {address} = this.state
+        const {address, location} = this.state
         return(
             <>
                 <div className = " justify-start text-customDefault">
@@ -67,9 +69,10 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
                             <h4><Rating rating = {4.3}/></h4>
                             <h4>{this.props.style}</h4>
                             <h4>{address}</h4>
-                            
                         </div>
+                        
                     </div>
+                    <Map address = {address} location = {location}/>
                 </div>
             </>
         )

@@ -2,7 +2,8 @@ import {Component} from 'react'
 import Rating from '@/components/rating'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import Map from '@/components/map'
+import Maps from '@/components/map'
+
 type resDescProps = {
     residence: string | string[]
     pricing: string | string[]
@@ -72,7 +73,7 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
                         </div>
                         
                     </div>
-                    <Map address = {address} location = {location}/>
+                    <Maps address = {address} location = {location}/>
                 </div>
             </>
         )

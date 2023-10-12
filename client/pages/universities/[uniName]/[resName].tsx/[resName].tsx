@@ -51,11 +51,9 @@ class ResInfo extends Component<ResProps, ResState> {
     try {
       const uniName = Cookies.get("uniName");
       const resName = Cookies.get("resName");
-      console.log(uniName);
-      console.log(resName);
+
       const response = await this.api.get(`api/get_residence_info/${uniName}/${resName}`);
       const residenceInfo = response.data.residenceInfo;
-      console.log(residenceInfo)
       this.setState({ residenceInfo });
     } catch (e) {
       console.log("failed to retrieve residence info");
@@ -64,7 +62,6 @@ class ResInfo extends Component<ResProps, ResState> {
 
   render() {
     const { uniName, resName, residenceInfo } = this.state;
-    console.log(residenceInfo)
     return (
       <div className="p-5">
         <div className="flex justify-center md:mb-20">

@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
 import axios from "axios";
 type googleMapProps = {
   address: string | string[];
@@ -9,37 +9,16 @@ type state = {
   key: string;
   map: any;
 };
-class Map extends Component<googleMapProps, state> {
-  api: any;
-  constructor(props: googleMapProps) {
-    super(props);
-    this.state = {
-      key: "",
-      map: null,
-    };
-    this.api = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-    });
-  }
 
-  async componentDidMount() {
-    try {
-      const response = this.api.get("/api/get_key/");
-      const key = response.data.key;
-      console.log(key);
-      this.setState({ key });
-    } catch {}
-  }
+class Map extends Component<googleMapProps,{}>{
+  
   render() {
-    const { key } = this.state;
-    const { address, location } = this.props;
-
-    return (
-      <LoadScript googleMapsApiKey= 'hello'>
-        <GoogleMap zoom={10} center={location}></GoogleMap>
-      </LoadScript>
-    );
+    return(
+      <GoogleMap defaultZoom = {15} defaultCenter = {this.props.location}>
+          <Marker position = {this.props.location}/>
+      </GoogleMap>
+    )
   }
 }
-
-export default Map;
+const WrappedMap = withScriptjs(withGoogleMap(Map))
+export default WrappedMap;

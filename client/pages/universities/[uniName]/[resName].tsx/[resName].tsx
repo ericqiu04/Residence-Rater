@@ -34,7 +34,6 @@ class ResInfo extends Component<ResProps, ResState> {
     const { uniName, resName } = router.query;
     const storeUniName = Array.isArray(uniName) ? uniName[0] : uniName;
     const storeResName = Array.isArray(resName) ? resName[0] : resName;
-    console.log(storeResName)
     if (storeUniName && storeResName) {
       this.setState({ uniName: storeUniName, resName: storeResName });
       Cookies.set("uniName", storeUniName);
@@ -51,20 +50,16 @@ class ResInfo extends Component<ResProps, ResState> {
     try {
       const uniName = Cookies.get("uniName");
       const resName = Cookies.get("resName");
-      console.log(uniName)
-      console.log(resName)
       const response = await this.api.get(`api/get_residence_info/${uniName}/${resName}`);
       const residenceInfo = response.data.residenceInfo;
       this.setState({ residenceInfo });
-      console.log(residenceInfo)
     } catch (e) {
       console.log("failed to retrieve residence info");
     }
   }
 
   render() {
-    const { uniName, resName, residenceInfo } = this.state;
-    console.log(uniName)
+    const {resName, residenceInfo } = this.state;
     return (
       <div className="p-5">
         <div className="flex justify-center md:mb-20">

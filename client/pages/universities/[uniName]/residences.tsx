@@ -53,6 +53,7 @@ class Residences extends React.Component<Props, State> {
 
   render() {
     const { uniName, residences } = this.state;
+    console.log(residences)
     return (
       <div className="">
         <h1 className="text-center text-4xl font-bold">{uniName} Residences</h1>

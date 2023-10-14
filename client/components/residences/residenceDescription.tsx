@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Rating from '@/components/rating'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import Maps from '@/components/map'
+import Map from '@/components/map'
 
 type resDescProps = {
     residence: string | string[]
@@ -29,16 +29,13 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
 
     async componentDidMount() {
         const {residence} = this.props
-        
+        console.log(residence)
         if (residence) {
             try {
                 const response = await this.api.get(`api/get_location/${residence}`)
-                console.log(response)
                 const address = response.data.address
                 const location = response.data.location
-                console.log(location)
-                this.setState({address: address})
-                Cookies.set('address', address)
+                this.setState({address, location})
                 Cookies.set('location', location)
     
             }
@@ -47,9 +44,8 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
             }
         }
         else {
-            const address = Cookies.get('address') || ""
             const location = Cookies.get('location') || {}
-            this.setState({address, location})
+            this.setState({location})
         }
 
     }
@@ -73,7 +69,7 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
                         </div>
                         
                     </div>
-                    <Maps address = {address} location = {location}/>
+                    <Map location = {location}/>
                 </div>
             </>
         )

@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
 import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
 import axios from "axios";
+import { log } from "console";
 type googleMapProps = {
-  address: string | string[];
   location: any | any[];
 };
 type googleMapState = {
@@ -10,12 +10,12 @@ type googleMapState = {
 };
 
 class Map extends Component<googleMapProps, googleMapState> {
-  api: any
-  constructor(props:googleMapProps){
-    super(props)
+  api: any;
+  constructor(props: googleMapProps) {
+    super(props);
     this.state = {
-      key: ""
-    }
+      key: "",
+    };
     this.api = axios.create({
       baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
     });
@@ -23,26 +23,33 @@ class Map extends Component<googleMapProps, googleMapState> {
 
   async componentDidMount() {
     try {
-      const response = this.api.get('api/get_frontend_key/')
-      const key = response.data.key
-      this.setState({key})
-    }
-    catch (e) {
-      console.log('key failed')
+      const response = await this.api.get("api/get_frontend_key");
+      const key = response.data.key;
+      this.setState({ key });
+    } catch (e) {
+      console.log("key failed");
     }
   }
 
   render() {
-    const {location} = this.props
-    const {key} = this.state
-    const mapProps = {
-      center: location,
-      zoom: 12,
+    const { location } = this.props;
+    console.log(location);
+    const { key } = this.state;
+    const center = {
+      lat: location.lat,
+      lng: location.lng,
     };
 
     return (
       <LoadScript googleMapsApiKey={key}>
-        <GoogleMap {...mapProps}>
+        <GoogleMap
+          mapContainerStyle={{
+            height: "400px",
+            width: "100%",
+          }}
+          center = {center}
+          zoom = {15}
+        >
           <Marker position={location} />
         </GoogleMap>
       </LoadScript>

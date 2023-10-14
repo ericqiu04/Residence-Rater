@@ -22,7 +22,7 @@ class ResInfo extends Component<ResProps, ResState> {
     this.state = {
       uniName: "",
       resName: "",
-      residenceInfo: [],
+      residenceInfo: null,
     };
     this.api = axios.create({
       baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -30,11 +30,11 @@ class ResInfo extends Component<ResProps, ResState> {
   }
 
   async componentDidMount() {
-    const { router } = this.props;
+    const {router} = this.props
     const { uniName, resName } = router.query;
-
     const storeUniName = Array.isArray(uniName) ? uniName[0] : uniName;
     const storeResName = Array.isArray(resName) ? resName[0] : resName;
+    console.log(storeResName)
     if (storeUniName && storeResName) {
       this.setState({ uniName: storeUniName, resName: storeResName });
       Cookies.set("uniName", storeUniName);
@@ -51,10 +51,12 @@ class ResInfo extends Component<ResProps, ResState> {
     try {
       const uniName = Cookies.get("uniName");
       const resName = Cookies.get("resName");
-
+      console.log(uniName)
+      console.log(resName)
       const response = await this.api.get(`api/get_residence_info/${uniName}/${resName}`);
       const residenceInfo = response.data.residenceInfo;
       this.setState({ residenceInfo });
+      console.log(residenceInfo)
     } catch (e) {
       console.log("failed to retrieve residence info");
     }
@@ -62,6 +64,7 @@ class ResInfo extends Component<ResProps, ResState> {
 
   render() {
     const { uniName, resName, residenceInfo } = this.state;
+    console.log(uniName)
     return (
       <div className="p-5">
         <div className="flex justify-center md:mb-20">
@@ -70,12 +73,14 @@ class ResInfo extends Component<ResProps, ResState> {
         <div className="flex flex-row">
           <div className="w-3/5"></div>
           <div className="w-2/5">
-            <ResidenceDescription
+
+            {residenceInfo ? (<ResidenceDescription
               residence={resName}
               pricing={residenceInfo.price}
               style={residenceInfo.style}
               rating={residenceInfo.rating}
-            />
+            />) : (<></>)}
+            
           </div>
         </div>
       </div>

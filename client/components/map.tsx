@@ -1,24 +1,52 @@
 import React, { Component, useState } from "react";
-import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
+import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
 import axios from "axios";
 type googleMapProps = {
   address: string | string[];
   location: any | any[];
 };
-type state = {
+type googleMapState = {
   key: string;
-  map: any;
 };
 
-class Map extends Component<googleMapProps,{}>{
-  
+class Map extends Component<googleMapProps, googleMapState> {
+  api: any
+  constructor(props:googleMapProps){
+    super(props)
+    this.state = {
+      key: ""
+    }
+    this.api = axios.create({
+      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    });
+  }
+
+  async componentDidMount() {
+    try {
+      const response = this.api.get('api/get_frontend_key/')
+      const key = response.data.key
+      this.setState({key})
+    }
+    catch (e) {
+      console.log('key failed')
+    }
+  }
+
   render() {
-    return(
-      <GoogleMap defaultZoom = {15} defaultCenter = {this.props.location}>
-          <Marker position = {this.props.location}/>
-      </GoogleMap>
-    )
+    const {location} = this.props
+    const {key} = this.state
+    const mapProps = {
+      center: location,
+      zoom: 12,
+    };
+
+    return (
+      <LoadScript googleMapsApiKey={key}>
+        <GoogleMap {...mapProps}>
+          <Marker position={location} />
+        </GoogleMap>
+      </LoadScript>
+    );
   }
 }
-const WrappedMap = withScriptjs(withGoogleMap(Map))
-export default WrappedMap;
+export default Map;

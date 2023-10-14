@@ -14,5 +14,5 @@ urlpatterns = [
     path('get_university/', rating.get_university, name = "get_university"),
     path('get_residence_info/<str:university>/<str:residence_name>/', rating.get_residence_info, name = "get_residences"),
     path('get_location/<str:residence_name>/', gmaps.get_location, name = "get_location"),
-    path('get_key/', gmaps.get_key, name = "get_key")
+    path('get_frontend_key/', gmaps.get_frontend_key, name = "get_key")
 ]

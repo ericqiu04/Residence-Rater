@@ -6,9 +6,10 @@ def get_api_key():
         data = json.load(file)
         return data.get('api_key')
 
-def get_key(request):
-    key = get_api_key()
-    return JsonResponse({'key': key})
+def get_frontend_key(request):
+    with open('../credentials/serviceAccountKey.json', 'r') as file:
+        data = json.load(file)
+        return JsonResponse({'key':data.get('frontend_key')})
 
 def get_location(request, residence_name):
     try:

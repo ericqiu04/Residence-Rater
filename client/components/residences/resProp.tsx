@@ -16,7 +16,7 @@ class ResProp extends Component<resProp, {}> {
 
   render() {
     const { uniName, resName, resImageLink, rating } = this.props;
-
+    console.log(`/universities/${encodeURIComponent(uniName)}/residences/${encodeURIComponent(resName)}`)
     return (
       <Link href = "/universities/[uniName]/residences/[resName]" as={`/universities/${encodeURIComponent(uniName)}/residences/${encodeURIComponent(resName)}`}>
         <motion.div

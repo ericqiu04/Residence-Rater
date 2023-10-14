@@ -40,8 +40,10 @@ class Residences extends React.Component<Props, State> {
       }
     }
     try {
+      console.log('hello')
       const uniName = Cookies.get("uniName");
-      const response = await this.api.get(`api/get_residences/${uniName}/`);
+      const response = await this.api.get(`api/get_residences/${uniName}`);
+      console.log(response)
       const residences = response.data.residences;
       this.setState({ residences: residences });
     } catch (e) {

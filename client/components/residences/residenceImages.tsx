@@ -18,23 +18,24 @@ class ResidenceImages extends Component<resImageProps, resImageState> {
 
   toImageSlide = (index:number) => {
     const {images} = this.props
-    if (index > 0 && index < images.length) {
+    console.log(images.length)
+    if (index > 0 && index <= images.length) {
         this.setState({
             selectedImage:index
         })
         return index
     }
-    else if(index == 0) {
-        this.setState({
-            selectedImage: 0
-        })
-        return 0
-    }
-    else if(index >= images.length) {
+    else if(index < 1) {
         this.setState({
             selectedImage: images.length
         })
         return images.length
+    }
+    else if(index > images.length) {
+        this.setState({
+            selectedImage: 1
+        })
+        return 1
     }
   }
 
@@ -45,16 +46,17 @@ class ResidenceImages extends Component<resImageProps, resImageState> {
       <>
         <div className="carousel w-full">
           {images.map((image, index) => (
-            <div id={`slide${index}`} className="carousel-item relative w-full">
+            <div id={`slide${index+1}`} className="carousel-item relative w-full">
               <img src={image} alt={`image-${index}`} />
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href={`slide${this.toImageSlide(index -1)}`} className="btn btn-circle" onClick = {() => this.toImageSlide(index -1)}>
+                <a href={`#slide${this.toImageSlide(index)}`} className="btn btn-circle">
                   ❮
                 </a>
-                <a href={`slide${this.toImageSlide(index -1)}`} className="btn btn-circle" onClick = {() => this.toImageSlide(index -1)}>
+                <a href={`#slide${this.toImageSlide(index+2)}`} className="btn btn-circle">
                   ❯
                 </a>
               </div>
+              <h1 className = 'text-xl'>{index}</h1>
             </div>
           ))}
         </div>

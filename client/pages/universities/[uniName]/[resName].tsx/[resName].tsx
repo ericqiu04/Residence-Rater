@@ -38,11 +38,11 @@ class ResInfo extends Component<ResProps, ResState> {
     const storeResName = Array.isArray(resName) ? resName[0] : resName;
     if (storeUniName && storeResName) {
       this.setState({ uniName: storeUniName, resName: storeResName });
-      Cookies.set("uniName", storeUniName);
-      Cookies.set("resName", storeResName);
+      Cookies.set("uName", storeUniName);
+      Cookies.set("rName", storeResName);
     } else {
-      const storedUniName = Cookies.get("uniName");
-      const storedResName = Cookies.get("resName");
+      const storedUniName = Cookies.get("uName");
+      const storedResName = Cookies.get("rName");
 
       if (storedUniName && storedResName) {
         this.setState({ uniName: storedUniName, resName: storedResName });
@@ -50,8 +50,8 @@ class ResInfo extends Component<ResProps, ResState> {
     }
 
     try {
-      const uniName = Cookies.get("uniName");
-      const resName = Cookies.get("resName");
+      const uniName = Cookies.get("uName");
+      const resName = Cookies.get("rName");
       const response = await this.api.get(
         `api/get_residence_info/${uniName}/${resName}`
       );
@@ -64,6 +64,7 @@ class ResInfo extends Component<ResProps, ResState> {
 
   render() {
     const { resName, residenceInfo } = this.state;
+    console.log(residenceInfo)
     return (
       <div className="p-5">
         <div className="flex justify-center md:mb-20">

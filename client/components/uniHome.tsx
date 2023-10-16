@@ -19,10 +19,10 @@ class UniHome extends React.Component {
                       className="w-full bg-base-100 rounded-lg py-5 px-4 focus:outline-none border-2 border-light-gray"
                       placeholder="Search University"
                     />
-                    <button className="hidden md:flex btn absolute right-3 bg-cyan-400 py-4">
+                    <button className="hidden md:flex btn btn-info absolute right-3 border-none bg-cyan-200 py-4">
                       Search
                     </button>
-                    <button className="md:hidden btn absolute right-3 bg-cyan-400">
+                    <button className="md:hidden btn btn-info absolute right-3 border-none bg-cyan-200">
                       <BsSearch size={20} />
                     </button>
                   </div>

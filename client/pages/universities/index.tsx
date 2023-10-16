@@ -37,7 +37,7 @@ class Universities extends React.Component<{}, UniversityDataState> {
     const { message, universities } = this.state;
     console.log(message);
     return (
-      <div className="w-full flex justify-center items-center m-auto">
+      <div className="w-full flex flex-wrap justify-center items-center m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-x-10 lg:gap-x-20 gap-y-10 mx-auto fadeLonger p-10">
           {universities.map((uni, index) => (
             <>

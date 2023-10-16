@@ -64,14 +64,22 @@ class ResInfo extends Component<ResProps, ResState> {
 
   render() {
     const { resName, residenceInfo } = this.state;
-    console.log(residenceInfo)
+    console.log(residenceInfo);
     return (
       <div className="p-5">
         <div className="flex justify-center md:mb-20">
           <h1 className="text-customDefault text-3xl font-bold">{resName}</h1>
         </div>
         <div className="flex flex-row">
-          <div className="w-3/5">{residenceInfo ? <ResidenceImages images = {residenceInfo.images}/> : <></>}</div>
+          <div className="w-3/5">
+            {residenceInfo ? (
+              <div>
+                <ResidenceImages images={residenceInfo.images} />
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
           <div className="w-2/5">
             {residenceInfo ? (
               <ResidenceDescription

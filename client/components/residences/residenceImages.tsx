@@ -43,7 +43,7 @@ class ResidenceImages extends Component<resImageProps, resImageState> {
   render() {
     const { images } = this.props;
     return (
-      <>
+      <div className = "px-5">
         <div className="carousel w-full">
           {images.map((image, index) => (
             <div id={`slide${index+1}`} className="carousel-item relative w-full">
@@ -60,7 +60,7 @@ class ResidenceImages extends Component<resImageProps, resImageState> {
             </div>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 }

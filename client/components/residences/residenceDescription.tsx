@@ -53,7 +53,7 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
     render(){
         const {address, location} = this.state
         return(
-            <>
+            <div className = "px-5">
                 <div className = " justify-start text-customDefault">
                     <div className ="flex flex-row space-x-3 lg:space-x-0 lg:grid lg:grid-cols-3 lg:text-lg xl:text-xl gap-0">
                         <div className = "font-bold space-y-3">
@@ -71,7 +71,7 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
                     </div>
                     <Map location = {location}/>
                 </div>
-            </>
+            </div>
         )
     }
 }

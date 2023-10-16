@@ -43,7 +43,7 @@ class Navbar extends React.Component<{}, NavbarState> {
                 <Link href="/universities">
                   <h4 className="text-default text-xl">Universities</h4>
                 </Link>
-                <Link href="/authenticate">
+                <Link href="/authentication/login">
                   <h4 className="text-default text-xl">Login / Register</h4>
                 </Link>
               </div>

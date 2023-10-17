@@ -20,7 +20,7 @@ class Register extends Component<{}, registerState> {
     }
     
     handleRegister = () => {
-        
+        const {email, username, firstName, lastName, password} = this.state
     }   
 
   render() {

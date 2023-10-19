@@ -43,6 +43,7 @@ class Residences extends React.Component<Props, State> {
       this.setState({ uniName });
     }
 
+    
     this.fetchData(uniName);
   }
 

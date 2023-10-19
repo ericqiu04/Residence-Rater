@@ -55,6 +55,7 @@ class ResInfo extends Component<ResProps, ResState> {
       const response = await this.api.get(
         `api/get_residence_info/${uniName}/${resName}`
       );
+      console.log(response)
       const residenceInfo = response.data.residenceInfo;
       this.setState({ residenceInfo });
     } catch (e) {
@@ -64,7 +65,6 @@ class ResInfo extends Component<ResProps, ResState> {
 
   render() {
     const { resName, residenceInfo } = this.state;
-    console.log(residenceInfo);
     return (
       <div className="p-5">
         <div className="flex justify-center md:mb-20">

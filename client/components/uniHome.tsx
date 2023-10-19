@@ -4,12 +4,12 @@ class UniHome extends React.Component {
   render() {
     return (
       <>
-        <div className="container">
+        <div className="container text-customDefault">
           <div className="absolute p-10 inset-0 flex items-center justify-center md:m-20 md:mt-48 lg:m-0">
             <div className="grid lg:grid-cols-2 lg:gap-10">
               <div className="xl:w-2/3 flex flex-col justify-center items-center">
                 <div className = "">
-                  <h1 className="text-black text-4xl bold">
+                  <h1 className="text-4xl bold">
                     Read Reviews. Write Reviews. Find the best residence for
                     you.
                   </h1>
@@ -19,10 +19,10 @@ class UniHome extends React.Component {
                       className="w-full bg-base-100 rounded-lg py-5 px-4 focus:outline-none border-2 border-light-gray"
                       placeholder="Search University"
                     />
-                    <button className="hidden md:flex btn btn-info absolute right-3 border-none bg-cyan-200 py-4">
+                    <button className="hidden md:flex btn btn-info absolute right-3 border-none bg-buttonStart hover:bg-buttonEnd py-4">
                       Search
                     </button>
-                    <button className="md:hidden btn btn-info absolute right-3 border-none bg-cyan-200">
+                    <button className="md:hidden btn btn-info absolute right-3 border-none bg-buttonStart hover:bg-buttonEnd">
                       <BsSearch size={20} />
                     </button>
                   </div>

@@ -18,7 +18,6 @@ class ResidenceImages extends Component<resImageProps, resImageState> {
 
   toImageSlide = (index:number) => {
     const {images} = this.props
-    console.log(images.length)
     if (index > 0 && index <= images.length) {
         this.setState({
             selectedImage:index

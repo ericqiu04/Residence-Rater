@@ -7,8 +7,8 @@ import ResidenceImages from "@/components/residences/residenceImages";
 import ResidenceDescription from "@/components/residences/residenceDescription";
 
 type ResState = {
-  uniName: string | string[];
-  resName: string | string[];
+  uniName: string | string[] | undefined;
+  resName: string | string[] | undefined;
   residenceInfo: any;
 };
 
@@ -34,6 +34,8 @@ class ResInfo extends Component<ResProps, ResState> {
   async componentDidMount() {
     const { router } = this.props;
     const { uniName, resName } = router.query;
+    this.setState({uniName, resName})
+    console.log(uniName, resName)
     const storeUniName = Array.isArray(uniName) ? uniName[0] : uniName;
     const storeResName = Array.isArray(resName) ? resName[0] : resName;
     if (storeUniName && storeResName) {

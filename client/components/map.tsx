@@ -35,9 +35,10 @@ class Map extends Component<googleMapProps, googleMapState> {
     const { location } = this.props;
     console.log(location);
     const { key } = this.state;
+    console.log(key)
     const center = {
-      lat: location.lat,
-      lng: location.lng,
+      lat: 40.71,
+      lng: 74.01,
     };
 
     return (

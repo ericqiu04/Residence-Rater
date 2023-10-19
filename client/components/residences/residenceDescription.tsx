@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import Map from '@/components/map'
 
 type resDescProps = {
-    residence: string | string[]
+    residence: string | string[] | undefined
     pricing: string | string[]
     rating: string | string[]
     style: string 

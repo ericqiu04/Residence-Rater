@@ -37,8 +37,8 @@ class Residences extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    const storedUniName = localStorage.getItem("uniName");
-    const uniName = JSON.parse(storedUniName)
+    const { router } = this.props;
+    const uniName = router.query.uniName as string;
     if (uniName) {
       this.setState({ uniName });
     }

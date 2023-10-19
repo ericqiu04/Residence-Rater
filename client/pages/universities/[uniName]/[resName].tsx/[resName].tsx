@@ -1,6 +1,5 @@
 import { Component } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { withRouter, NextRouter } from "next/router";
 
 import ResidenceImages from "@/components/residences/residenceImages";
@@ -31,37 +30,31 @@ class ResInfo extends Component<ResProps, ResState> {
     });
   }
 
-  async componentDidMount() {
+  async fetchData() {
     const { router } = this.props;
     const { uniName, resName } = router.query;
-    this.setState({uniName, resName})
-    console.log(uniName, resName)
-    const storeUniName = Array.isArray(uniName) ? uniName[0] : uniName;
-    const storeResName = Array.isArray(resName) ? resName[0] : resName;
-    if (storeUniName && storeResName) {
-      this.setState({ uniName: storeUniName, resName: storeResName });
-      Cookies.set("uName", storeUniName);
-      Cookies.set("rName", storeResName);
-    } else {
-      const storedUniName = Cookies.get("uName");
-      const storedResName = Cookies.get("rName");
 
-      if (storedUniName && storedResName) {
-        this.setState({ uniName: storedUniName, resName: storedResName });
+    if (uniName && resName) {
+      try {
+        const response = await this.api.get(
+          `api/get_residence_info/${uniName}/${resName}`
+        );
+        console.log(response);
+        const residenceInfo = response.data.residenceInfo;
+        this.setState({ uniName, resName, residenceInfo });
+      } catch (e) {
+        console.log("failed to retrieve residence info");
       }
     }
+  }
 
-    try {
-      const uniName = Cookies.get("uName");
-      const resName = Cookies.get("rName");
-      const response = await this.api.get(
-        `api/get_residence_info/${uniName}/${resName}`
-      );
-      console.log(response)
-      const residenceInfo = response.data.residenceInfo;
-      this.setState({ residenceInfo });
-    } catch (e) {
-      console.log("failed to retrieve residence info");
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  componentDidUpdate(prevProps: ResProps) {
+    if (prevProps.router.query.uniName !== this.props.router.query.uniName || prevProps.router.query.resName !== this.props.router.query.resName) {
+      this.fetchData();
     }
   }
 

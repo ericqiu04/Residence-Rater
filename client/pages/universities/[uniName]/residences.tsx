@@ -5,7 +5,7 @@ import axios from "axios";
 import ResProp from "@/components/residences/resProp";
 
 type State = {
-  uniName: string;
+  uniName: string | string[];
   residences: any[];
 };
 
@@ -25,29 +25,33 @@ class Residences extends React.Component<Props, State> {
     });
   }
 
-  async componentDidMount() {
-    const { router } = this.props;
-    const { uniName } = router.query;
-    const storeUniName = Array.isArray(uniName) ? uniName[0] : uniName;
-    if (storeUniName) {
-      this.setState({uniName: storeUniName});
-      Cookies.set("uniName", storeUniName);
-    } else {
-      const storedUniName = Cookies.get('uniName');
-
-      if (storedUniName) {
-        this.setState({ uniName: storedUniName});
-      }
-    }
+  async fetchData(uniName:any) {
     try {
-      console.log('hello')
-      const uniName = Cookies.get("uniName");
       const response = await this.api.get(`api/get_residences/${uniName}`);
-      console.log(response)
+      console.log(response);
       const residences = response.data.residences;
-      this.setState({ residences: residences });
+      this.setState({ uniName, residences });
     } catch (e) {
       console.log("failed");
+    }
+  }
+
+  componentDidMount() {
+    const storedUniName = localStorage.getItem("uniName");
+    const uniName = JSON.parse(storedUniName)
+    if (uniName) {
+      this.setState({ uniName });
+    }
+
+    this.fetchData(uniName);
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.router.query.uniName !== this.props.router.query.uniName) {
+      const { uniName } = this.props.router.query;
+      if (uniName) {
+        this.fetchData(uniName);
+      }
     }
   }
 

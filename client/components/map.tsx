@@ -3,10 +3,11 @@ import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
 import axios from "axios";
 import { log } from "console";
 type googleMapProps = {
-  location: any | any[];
+  residence: string | string[];
 };
 type googleMapState = {
   key: string;
+  location: any | any[];
 };
 
 class Map extends Component<googleMapProps, googleMapState> {
@@ -15,6 +16,7 @@ class Map extends Component<googleMapProps, googleMapState> {
     super(props);
     this.state = {
       key: "",
+      location: [{ lat: 0, lng: 0 }],
     };
     this.api = axios.create({
       baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -22,23 +24,25 @@ class Map extends Component<googleMapProps, googleMapState> {
   }
 
   async componentDidMount() {
+    const { residence } = this.props;
     try {
       const response = await this.api.get("api/get_frontend_key");
+      const response2 = await this.api.get(`api/get_location/${residence}`);
       const key = response.data.key;
       this.setState({ key });
+
+      const location = response2.data.location;
+      this.setState({ location });
     } catch (e) {
       console.log("key failed");
     }
   }
 
   render() {
-    const { location } = this.props;
-    console.log(location);
-    const { key } = this.state;
-    console.log(key)
+    const { location, key } = this.state;
     const center = {
-      lat: 40.71,
-      lng: 74.01,
+      lat: location.lat,
+      lng: location.lng,
     };
 
     return (
@@ -48,8 +52,8 @@ class Map extends Component<googleMapProps, googleMapState> {
             height: "400px",
             width: "100%",
           }}
-          center = {center}
-          zoom = {15}
+          center={center}
+          zoom={15}
         >
           <Marker position={location} />
         </GoogleMap>

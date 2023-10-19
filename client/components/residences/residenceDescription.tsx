@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import Map from '@/components/map'
 
 type resDescProps = {
-    residence: string | string[] | undefined
+    residence: string | string[]
     pricing: string | string[]
     rating: string | string[]
     style: string 
@@ -27,31 +27,8 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
           });
     }
 
-    async componentDidMount() {
-        const {residence} = this.props
-        console.log(residence)
-        if (residence) {
-            try {
-                const response = await this.api.get(`api/get_location/${residence}`)
-                const address = response.data.address
-                const location = response.data.location
-                this.setState({address, location})
-                Cookies.set('location', location)
-    
-            }
-            catch (e) {
-                console.log('failed')
-            }
-        }
-        else {
-            const location = Cookies.get('location') || {}
-            this.setState({location})
-        }
-
-    }
-
     render(){
-        const {address, location} = this.state
+        const {residence, pricing, style} = this.props
         return(
             <div className = "px-5">
                 <div className = " justify-start text-customDefault">
@@ -62,14 +39,13 @@ class ResidenceDescription extends Component<resDescProps, gmapState> {
                             <h4>Style:</h4>
                         </div>
                         <div className = "space-y-3 col-span-2">
-                            <h4>{this.props.pricing}</h4>
+                            <h4>{pricing}</h4>
                             <h4><Rating rating = {4.3}/></h4>
-                            <h4>{this.props.style}</h4>
-                            <h4>{address}</h4>
+                            <h4>{style}</h4>
                         </div>
                         
                     </div>
-                    <Map location = {location}/>
+                    <Map residence = {residence} />
                 </div>
             </div>
         )

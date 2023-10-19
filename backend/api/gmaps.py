@@ -1,16 +1,16 @@
 import googlemaps
+from django.http import JsonResponse
 import json
 def get_api_key():
-    with open('../../credentials/serviceAccountKey.json', 'r') as file:
+    with open('../credentials/serviceAccountKey.json', 'r') as file:
         data = json.load(file)
         return data.get('api_key')
 
 def get_frontend_key(request):
-    with open('../../credentials/serviceAccountKey.json', 'r') as file:
-        data = json.load(file)
-        return JsonResponse({'key':data.get('frontend_key')})
+    key = get_api_key()
+    return JsonResponse({'key': key})
 
-def get_location( residence_name):
+def get_location(request, residence_name):
     try:
         api_key = get_api_key()
         gmaps = googlemaps.Client(key=api_key)
@@ -27,11 +27,7 @@ def get_location( residence_name):
                     'address': address,
                     'location': location
                 }
-                return 'working'
+                return JsonResponse({'address': address, 'location': location})
        
     except Exception as e:
         return e
-
-
-
-get_location( residence_name = "ron edyt village")

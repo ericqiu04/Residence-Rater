@@ -2,6 +2,12 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import bcrypt
 
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+
+
+
 cred = credentials.Certificate("../credentials/serviceAccountKey.json")
 firebase_admin.initialize_app(
     cred, {"databaseURL": "https://ontario-residence-rater.firebaseio.com"}
@@ -9,7 +15,25 @@ firebase_admin.initialize_app(
 db = firestore.client()
 user_ref = db.collection("users")
 
-logged_in = False
+class FirebaseConfigView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        with open('../credentials/serviceAccountKey.json', 'r') as file:
+            data = json.load(file)
+            key = data.get('api_key')
+            firebase_config = {
+                'apiKey': key,
+                'authDomain': 'ontario-residence-rater.firebaseapp.com',
+                'projectId': 'ontario-residence-rater',
+                'storageBucket': 'ontario-residence-rater.appspot.com',
+                'messagingSenderId': '1067956136255',
+                'appId': '1:1067956136255:web:6fc048b52889a6cde18b8a',
+            }   
+            return Response(firebase_config)
+    
+        
+
 
 def register(username, first_name, last_name, email, password, confirm_password):
     
@@ -99,3 +123,4 @@ def get_user(user):
         return user_data.to_dict()
     else:
         return None
+

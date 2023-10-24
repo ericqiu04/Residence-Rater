@@ -6,6 +6,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenRefreshView
 
 
 cred = credentials.Certificate("../credentials/serviceAccountKey.json")
@@ -39,7 +42,6 @@ def register(username, first_name, last_name, email, password, confirm_password)
     
     user_id = username.upper()
 
-    #checks for availability
     if(confirm_password != password):
         return {"error": "passwords do not match"}
     if check_email(email):
@@ -58,8 +60,11 @@ def register(username, first_name, last_name, email, password, confirm_password)
         'email': email,
         'password': h_password.decode('utf-8')
     })
-    sign_in()
-    return {'message': 'Registration Success', 'id': username, "signin?": logged_in}
+
+    user = {'user':user_id}
+    refresh = RefreshToken.for_user(user.upper())
+    
+    return {'accessToken': str(refresh.access_token), 'refreshToken': str(refresh)}
     
 
 def login(username, password):
@@ -71,10 +76,10 @@ def login(username, password):
     
     #checks for password matching
     if bcrypt.checkpw(password.encode('utf-8'), h_password.encode('utf-8')):
-        sign_in()
-        return {'message': "login successful", "signin?": logged_in}
+        refresh = RefreshToken.for_user(username.upper())
+        return {'accessToken': str(refresh.access_token), 'refreshToken': str(refresh)}
     else:
-        return {'error': "password incorrect", "signin?": logged_in}
+        return {'error': "password incorrect"}
     
 def update_user(user, new_data):
     user_data = user_ref.document(user.upper())
@@ -94,15 +99,6 @@ def delete_data(user):
     
     user_ref.document(user.upper()).delete()
     return {'Message': 'User has been deleted', 'username': user}
-
-
-def sign_in():
-    global logged_in
-    logged_in = True
-    
-def sign_out():
-    global logged_in
-    logged_in = False
 
 def check_email(email):
     query = user_ref.where('email', '==', email).get()

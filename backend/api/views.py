@@ -25,7 +25,7 @@ def user_register(request):
     email = data.get("email")
     
     message = register(username,fName, lName, email, password, cPassword)
-    return JsonResponse(message)
+    return Response(message)
     
 def user_login(request):
     data = json.loads(request.body)

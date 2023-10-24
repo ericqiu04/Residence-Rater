@@ -21,7 +21,7 @@ class FirebaseConfigView(APIView):
     def get(self, request):
         with open('../credentials/serviceAccountKey.json', 'r') as file:
             data = json.load(file)
-            key = data.get('api_key')
+            key = data.get('firebase_key')
             firebase_config = {
                 'apiKey': key,
                 'authDomain': 'ontario-residence-rater.firebaseapp.com',

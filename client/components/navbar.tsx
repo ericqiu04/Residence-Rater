@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const handleNavigation = (route: any) => {
     router.push(route);
-    const delayMilliseconds = 100;
+    const delayMilliseconds = 500;
     setTimeout(() => {
       router.reload();
     }, delayMilliseconds);

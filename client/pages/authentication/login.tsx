@@ -7,7 +7,7 @@ class Login extends Component {
     return (
       <>
         <div className="min-h-[70vh] flex items-center justify-center">
-          <div className="bg-white p-8 w-1/3 rounded-lg shadow-lg">
+          <div className="bg-white p-8 w-2/3 lg:w-1/2 2xl:w-1/3 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
             <form>
               <div className="mb-4">

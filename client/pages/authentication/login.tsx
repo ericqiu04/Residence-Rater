@@ -1,7 +1,28 @@
 import { Component } from "react";
+import axios from 'axios'
 
-class Login extends Component {
-  handleLogin = () => {};
+
+type LoginState = {
+  email: string,
+  password: string
+}
+class Login extends Component<{}, LoginState> {
+  api:any
+  constructor(props: {}) {
+    super(props)
+    this.state = {
+      email: "",
+      password: ""
+    }
+    this.api = axios.create({
+      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    });
+  }
+  handleLogin = async () => {
+    const {email, password} = this.state
+    
+  };
+
 
   render() {
     return (
@@ -20,6 +41,7 @@ class Login extends Component {
                   name="email"
                   className="w-full input input-bordered rounded-lg"
                   placeholder="youremail@example.com"
+                  onChange = {(e) => this.setState({email: e.target.value})}
                 />
               </div>
               <div className="mb-4">
@@ -32,6 +54,7 @@ class Login extends Component {
                   name="password"
                   className="w-full input input-bordered rounded-lg"
                   placeholder="Password"
+                  onChange = {(e) => this.setState({password: e.target.value})}
                 />
               </div>
               <div className="flex flex-col items-center justify-center space-y-3">

@@ -8,7 +8,7 @@ type registerState = {
   password: any;
 };
 class Register extends Component<{}, registerState> {
-  constructor(props: any) {
+  constructor(props: {}) {
     super(props);
     this.state = {
       email: "",
@@ -19,7 +19,7 @@ class Register extends Component<{}, registerState> {
     };
   }
 
-  handleRegister = () => {
+  handleRegister = async () => {
     const { email, username, firstName, lastName, password } = this.state;
   };
 

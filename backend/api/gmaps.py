@@ -8,6 +8,7 @@ def get_api_key():
 
 def get_frontend_key(request):
     key = get_api_key()
+    print(key)
     return JsonResponse({'key': key})
 
 def get_location(request, residence_name):

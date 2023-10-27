@@ -14,7 +14,6 @@ from .rating import create_review, update_review, delete_review
 def hello_world(request):
     return JsonResponse({"message": "Hello, world!"})
 
-
 def user_register(request):
     data = json.loads(request.body)
     username = data.get('username')
@@ -26,14 +25,14 @@ def user_register(request):
     
     message = register(username,fName, lName, email, password, cPassword)
     return Response(message)
-    
+
 def user_login(request):
     data = json.loads(request.body)
     username = data.get('username')
     password = data.get("password")
     
     message = login(username, password)
-    return JsonResponse(message)
+    return Response(message)
 
 @csrf_exempt
 def user_profiles(request, username):

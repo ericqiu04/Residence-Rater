@@ -1,7 +1,10 @@
 from django.urls import path
 from . import views, rating, gmaps
 from django.views.decorators.csrf import csrf_exempt
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 urlpatterns = [
     path('hello/', views.hello_world, name='hello_world'),
     path('register/', views.user_register, name = "user_register"),
@@ -14,5 +17,7 @@ urlpatterns = [
     path('get_university/', rating.get_university, name = "get_university"),
     path('get_residence_info/<str:university>/<str:residence_name>/', rating.get_residence_info, name = "get_residences"),
     path('get_location/<str:residence_name>/', gmaps.get_location, name = "get_location"),
-    path('get_frontend_key/', gmaps.get_frontend_key, name = "get_key")
+    path('get_frontend_key/', gmaps.get_frontend_key, name = "get_key"),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

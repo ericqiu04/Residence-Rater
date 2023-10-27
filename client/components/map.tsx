@@ -30,7 +30,7 @@ class Map extends Component<googleMapProps, googleMapState> {
       const response2 = await this.api.get(`api/get_location/${residence}`);
       const key = response.data.key;
       this.setState({ key });
-
+      
       const location = response2.data.location;
       this.setState({ location });
     } catch (e) {

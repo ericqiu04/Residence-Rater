@@ -64,23 +64,26 @@ def register(username, first_name, last_name, email, password, confirm_password)
     user = {'user':user_id}
     refresh = RefreshToken.for_user(user.upper())
     
-    return {'accessToken': str(refresh.access_token), 'refreshToken': str(refresh)}
+    return {'accessToken': refresh.access_token, 'refreshToken': refresh}
     
 
 def login(username, password):
     if not check_username(username.upper()):
         return {'message': 'incorrect username'}
-    
-    user_data = user_ref.document(username.upper()).get()
+
+    user_id = username.upper()
+    user_data = user_ref.document(user_id).get()
     h_password = user_data.to_dict().get('password')
-    
-    #checks for password matching
+
+    # Checks for password matching
     if bcrypt.checkpw(password.encode('utf-8'), h_password.encode('utf-8')):
-        refresh = RefreshToken.for_user(username.upper())
-        return {'accessToken': str(refresh.access_token), 'refreshToken': str(refresh)}
+        refresh = RefreshToken.for_user(user_id)
+        print(refresh.access_token)
+        return {'accessToken': refresh.access_token, 'refreshToken': refresh}
     else:
         return {'error': "password incorrect"}
-    
+
+
 def update_user(user, new_data):
     user_data = user_ref.document(user.upper())
     current_data = user_data.get().to_dict()

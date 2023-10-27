@@ -1,26 +1,32 @@
 import { Component } from "react";
 import axios from 'axios'
-
-
+import authManager from "@/auth/useAuth";
+import { NextRouter, withRouter } from "next/router";
 type LoginState = {
-  email: string,
+  username: string,
   password: string
 }
-class Login extends Component<{}, LoginState> {
+type LoginProps = {
+  router:NextRouter
+}
+class Login extends Component<LoginProps, LoginState> {
   api:any
-  constructor(props: {}) {
+  constructor(props: LoginProps) {
     super(props)
     this.state = {
-      email: "",
+      username: "",
       password: ""
     }
     this.api = axios.create({
       baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
     });
   }
-  handleLogin = async () => {
-    const {email, password} = this.state
-    
+  
+  handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    const {username, password} = this.state
+    await authManager.login({username, password})
+    this.props.router.push("/")
   };
 
 
@@ -30,7 +36,7 @@ class Login extends Component<{}, LoginState> {
         <div className="min-h-[70vh] flex items-center justify-center">
           <div className="bg-white p-8 w-2/3 lg:w-1/2 2xl:w-1/3 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
-            <form>
+            <form onSubmit = {this.handleLogin}>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   E-Mail
@@ -41,7 +47,7 @@ class Login extends Component<{}, LoginState> {
                   name="email"
                   className="w-full input input-bordered rounded-lg"
                   placeholder="youremail@example.com"
-                  onChange = {(e) => this.setState({email: e.target.value})}
+                  onChange = {(e) => this.setState({username: e.target.value})}
                 />
               </div>
               <div className="mb-4">
@@ -59,8 +65,8 @@ class Login extends Component<{}, LoginState> {
               </div>
               <div className="flex flex-col items-center justify-center space-y-3">
                 <button
-                  type="submit"
                   className="btn btn-info px-10 py-3 flex"
+                  onClick = {this.handleLogin}
                 >
                   Login
                 </button>
@@ -75,4 +81,4 @@ class Login extends Component<{}, LoginState> {
   }
 }
 
-export default Login;
+export default withRouter(Login);

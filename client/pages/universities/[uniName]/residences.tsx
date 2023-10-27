@@ -5,7 +5,7 @@ import axios from "axios";
 import ResProp from "@/components/residences/resProp";
 
 type State = {
-  uniName: string | string[];
+  uniName: string;
   residences: any[];
 };
 

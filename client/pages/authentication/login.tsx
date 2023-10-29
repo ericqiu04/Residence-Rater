@@ -1,25 +1,19 @@
 import { Component } from "react";
 import axios from 'axios'
 import authManager from "@/auth/useAuth";
-import { NextRouter, withRouter } from "next/router";
+import { withRouter } from "next/router";
+import {RouterProps} from "@/components/props/propType";
 type LoginState = {
   username: string,
   password: string
 }
-type LoginProps = {
-  router:NextRouter
-}
-class Login extends Component<LoginProps, LoginState> {
-  api:any
-  constructor(props: LoginProps) {
+class Login extends Component<RouterProps, LoginState> {
+  constructor(props: RouterProps) {
     super(props)
     this.state = {
       username: "",
       password: ""
     }
-    this.api = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-    });
   }
   
   handleLogin = async (e: React.FormEvent) => {

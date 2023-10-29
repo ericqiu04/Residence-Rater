@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views, rating, gmaps
+from . import views, rating, gmaps, authentication
 from django.views.decorators.csrf import csrf_exempt
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -20,4 +21,5 @@ urlpatterns = [
     path('get_frontend_key/', gmaps.get_frontend_key, name = "get_key"),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('firebase-config/', authentication.get_firebase_config, name = "firebase-config" )
 ]

@@ -32,7 +32,7 @@ def user_login(request):
     password = data.get("password")
     
     message = login(username, password)
-    return Response(message)
+    return JsonResponse(message)
 
 @csrf_exempt
 def user_profiles(request, username):

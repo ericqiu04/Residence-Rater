@@ -1,5 +1,5 @@
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials, firestore, auth
 import bcrypt
 
 from rest_framework.response import Response
@@ -18,24 +18,19 @@ firebase_admin.initialize_app(
 db = firestore.client()
 user_ref = db.collection("users")
 
-class FirebaseConfigView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        with open('../credentials/serviceAccountKey.json', 'r') as file:
-            data = json.load(file)
-            key = data.get('firebase_key')
-            firebase_config = {
-                'apiKey': key,
-                'authDomain': 'ontario-residence-rater.firebaseapp.com',
-                'projectId': 'ontario-residence-rater',
-                'storageBucket': 'ontario-residence-rater.appspot.com',
-                'messagingSenderId': '1067956136255',
-                'appId': '1:1067956136255:web:6fc048b52889a6cde18b8a',
-            }   
-            return Response(firebase_config)
-    
-        
+def get_firebase_config(request):
+     with open('../credentials/serviceAccountKey.json', 'r') as file:
+        data = json.load(file)
+        key = data.get('firebase_key')
+        firebase_config = {
+            'apiKey': key,
+            'authDomain': 'ontario-residence-rater.firebaseapp.com',
+            'projectId': 'ontario-residence-rater',
+            'storageBucket': 'ontario-residence-rater.appspot.com',
+            'messagingSenderId': '1067956136255',
+            'appId': '1:1067956136255:web:6fc048b52889a6cde18b8a',
+          }
+        return Response(firebase_config)
 
 
 def register(username, first_name, last_name, email, password, confirm_password):
@@ -65,7 +60,7 @@ def register(username, first_name, last_name, email, password, confirm_password)
     refresh = RefreshToken.for_user(user.upper())
     
     return {'accessToken': refresh.access_token, 'refreshToken': refresh}
-    
+
 
 def login(username, password):
     if not check_username(username.upper()):
@@ -73,15 +68,20 @@ def login(username, password):
 
     user_id = username.upper()
     user_data = user_ref.document(user_id).get()
-    h_password = user_data.to_dict().get('password')
 
-    # Checks for password matching
-    if bcrypt.checkpw(password.encode('utf-8'), h_password.encode('utf-8')):
-        refresh = RefreshToken.for_user(user_id)
-        print(refresh.access_token)
-        return {'accessToken': refresh.access_token, 'refreshToken': refresh}
+
+    if user_data.exists:
+        h_password = user_data.to_dict().get('password')
+
+        # Checks for password matching
+        if bcrypt.checkpw(password.encode('utf-8'), h_password.encode('utf-8')):
+            # Use the username as the identifier
+            refresh = RefreshToken.for_user(user_identifier)
+            return {'accessToken': refresh.access_token, 'refreshToken': refresh}
+        else:
+            return {'error': "password incorrect"}
     else:
-        return {'error': "password incorrect"}
+        return {'error': "user not found"}
 
 
 def update_user(user, new_data):

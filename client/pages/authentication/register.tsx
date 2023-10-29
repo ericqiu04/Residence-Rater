@@ -1,4 +1,10 @@
 import { Component } from "react";
+import {auth} from "@/auth/firebase"
+import {createUserWithEmailAndPassword, updateProfile} from "@firebase/auth";
+import { withRouter } from "next/router";
+import {RouterProps} from "@/components/props/propType";
+
+
 
 type registerState = {
   email: string;
@@ -7,8 +13,9 @@ type registerState = {
   lastName: string;
   password: any;
 };
-class Register extends Component<{}, registerState> {
-  constructor(props: {}) {
+
+class Register extends Component<RouterProps, registerState> {
+  constructor(props: RouterProps) {
     super(props);
     this.state = {
       email: "",
@@ -21,6 +28,17 @@ class Register extends Component<{}, registerState> {
 
   handleRegister = async () => {
     const { email, username, firstName, lastName, password } = this.state;
+    try {
+      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+      const user = userCredentials.user
+      await updateProfile(user, {
+        displayName: username,
+      })
+
+    }
+    catch (e) {
+      console.log("failed to create user")
+    }
   };
 
   render() {
@@ -127,4 +145,4 @@ class Register extends Component<{}, registerState> {
   }
 }
 
-export default Register;
+export default withRouter(Register);

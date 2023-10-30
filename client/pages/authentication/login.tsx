@@ -3,6 +3,7 @@ import axios from 'axios'
 import authManager from "@/auth/useAuth";
 import { withRouter } from "next/router";
 import {RouterProps} from "@/components/props/propType";
+import Link from "next/link";
 type LoginState = {
   username: string,
   password: string
@@ -20,7 +21,7 @@ class Login extends Component<RouterProps, LoginState> {
     e.preventDefault()
     const {username, password} = this.state
     await authManager.login({username, password})
-    this.props.router.push("/")
+    await this.props.router.push("/")
   };
 
 
@@ -64,7 +65,7 @@ class Login extends Component<RouterProps, LoginState> {
                 >
                   Login
                 </button>
-                <a href = "/authentication/register" className = "text-gray-500">create new account</a>
+                <Link href = "/authentication/register" className = "text-gray-500">create new account</Link>
 
               </div>
             </form>

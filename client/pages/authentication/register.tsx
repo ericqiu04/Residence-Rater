@@ -1,10 +1,11 @@
 import { Component } from "react";
-import {auth} from "@/auth/firebase"
+import {auth} from "@/auth/firebase";
 import {createUserWithEmailAndPassword, updateProfile} from "@firebase/auth";
 import { withRouter } from "next/router";
 import {RouterProps} from "@/components/props/propType";
 import api from "@/auth/api";
 import {setToken} from "@/auth/api";
+import Link from "next/link";
 
 
 type registerState = {
@@ -27,7 +28,8 @@ class Register extends Component<RouterProps, registerState> {
     };
   }
 
-  handleRegister = async () => {
+  handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault()
     const { email, username, firstName, lastName, password } = this.state;
     try {
       const data = {email, username, firstName, lastName, password}
@@ -36,6 +38,8 @@ class Register extends Component<RouterProps, registerState> {
       const response = await api.post("/api/get_token/", data)
       const token = response.data.token
       setToken(token)
+      await this.props.router.push("/")
+
     }
     catch (e) {
       console.log("failed to create user")
@@ -134,9 +138,9 @@ class Register extends Component<RouterProps, registerState> {
                 >
                   Register
                 </button>
-                <a href="/authentication/login" className="text-gray-500">
+                <Link href="/authentication/login" className="text-gray-500">
                   have an account?
-                </a>
+                </Link>
               </div>
             </form>
           </div>

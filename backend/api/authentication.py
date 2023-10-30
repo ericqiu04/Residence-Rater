@@ -3,6 +3,8 @@ from firebase_admin import credentials, firestore, auth
 import bcrypt
 
 from rest_framework.response import Response
+import json
+from django.http import JsonResponse
 
 
 
@@ -26,7 +28,7 @@ def get_firebase_config(request):
             'messagingSenderId': '1067956136255',
             'appId': '1:1067956136255:web:6fc048b52889a6cde18b8a',
           }
-        return Response(firebase_config)
+        return JsonResponse({'config': firebase_config})
 
 
 def register(data):
@@ -63,6 +65,17 @@ def login(data):
     except Exception as e:
         return {'error': str(e)}
 
+def get_token(request):
+    try:
+        data = json.loads(request.body)
+        email = data.get('email')
+
+        user = auth.get_user_by_email(email)
+        if user:
+            token = auth.create_custom_token(user.uid)
+            return {'token': str(token)}
+    except Exception as e:
+        return {'error': 'user not found'}
 
 def update_user(user, new_data):
     user_data = user_ref.document(user.upper())

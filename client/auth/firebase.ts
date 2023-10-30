@@ -1,11 +1,11 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from "firebase/compat/app";
+import 'firebase/compat/auth'
 import api from './api'
 
 async function fetchFirebaseConfig() {
     try {
         const response = await api.get('/api/firebase-config')
-        const firebaseConfig = response.json()
+        const firebaseConfig = response.data.config
 
         if (firebaseConfig) {
             firebase.initializeApp(firebaseConfig)

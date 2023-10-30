@@ -3,7 +3,8 @@ import {auth} from "@/auth/firebase"
 import {createUserWithEmailAndPassword, updateProfile} from "@firebase/auth";
 import { withRouter } from "next/router";
 import {RouterProps} from "@/components/props/propType";
-
+import api from "@/auth/api";
+import {setToken} from "@/auth/api";
 
 
 type registerState = {
@@ -29,12 +30,12 @@ class Register extends Component<RouterProps, registerState> {
   handleRegister = async () => {
     const { email, username, firstName, lastName, password } = this.state;
     try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-      const user = userCredentials.user
-      await updateProfile(user, {
-        displayName: username,
-      })
-    
+      const data = {email, username, firstName, lastName, password}
+      await createUserWithEmailAndPassword(auth, email, password)
+
+      const response = await api.post("/api/get_token/", data)
+      const token = response.data.token
+      setToken(token)
     }
     catch (e) {
       console.log("failed to create user")

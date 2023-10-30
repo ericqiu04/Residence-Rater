@@ -1,22 +1,19 @@
 import { Component } from "react";
-import {auth} from "@/auth/firebase";
-import {createUserWithEmailAndPassword, updateProfile} from "@firebase/auth";
-import { withRouter } from "next/router";
-import {RouterProps} from "@/components/props/propType";
 import api from "@/auth/api";
-import {setToken} from "@/auth/api";
+import Cookies from "js-cookie";
+//Routing
+import { withRouter } from "next/router";
+import {RouterProps} from "@/data/props";
 import Link from "next/link";
+import {RegisterState} from "@/data/state";
+//Auth
+import {getAuth, getIdToken} from "@firebase/auth";
+import 'firebase/auth';
+import {createUserWithEmailAndPassword, updateProfile} from "@firebase/auth";
 
 
-type registerState = {
-  email: string;
-  username: string;
-  firstName: string;
-  lastName: string;
-  password: any;
-};
 
-class Register extends Component<RouterProps, registerState> {
+class Register extends Component<RouterProps, RegisterState> {
   constructor(props: RouterProps) {
     super(props);
     this.state = {
@@ -32,13 +29,19 @@ class Register extends Component<RouterProps, registerState> {
     e.preventDefault()
     const { email, username, firstName, lastName, password } = this.state;
     try {
-      const data = {email, username, firstName, lastName, password}
-      await createUserWithEmailAndPassword(auth, email, password)
+      const auth = getAuth()
+      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+      const user = userCredentials.user
 
-      const response = await api.post("/api/get_token/", data)
-      const token = response.data.token
-      setToken(token)
-      await this.props.router.push("/")
+      const idToken = await user.getIdToken()
+
+      const response = await api.post('/api/verify_token', {idToken})
+
+      if (response.status === 200) {
+        const responseData = response.data
+        Cookies.set('idToken', idToken, {expires: 7})
+        await this.props.router.push('/universities')
+      }
 
     }
     catch (e) {

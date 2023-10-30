@@ -2,26 +2,47 @@ import { Component } from "react";
 import axios from 'axios'
 import authManager from "@/auth/useAuth";
 import { withRouter } from "next/router";
-import {RouterProps} from "@/components/props/propType";
 import Link from "next/link";
-type LoginState = {
-  username: string,
-  password: string
-}
+
+import {getAuth, signInWithEmailAndPassword} from "@firebase/auth";
+import {RouterProps} from "@/data/props";
+import {LoginState} from "@/data/state";
+import api from "@/auth/api";
+import Cookies from "js-cookie";
+
 class Login extends Component<RouterProps, LoginState> {
   constructor(props: RouterProps) {
     super(props)
     this.state = {
-      username: "",
+      email: "",
       password: ""
     }
   }
   
   handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    const {username, password} = this.state
-    await authManager.login({username, password})
-    await this.props.router.push("/")
+    const {email, password} = this.state
+    try {
+      const auth = getAuth()
+      const userCredentials = await signInWithEmailAndPassword(auth, email, password)
+      const user = userCredentials.user
+
+      const idToken = await user.getIdToken()
+
+      const response = await api.post('/api/verify_token', {idToken})
+
+      if (response.status === 200) {
+        try {
+          Cookies.set('idToken', idToken, {expires: 7})
+        }
+        catch (e) {
+          console.log(e)
+        }
+      }
+    }
+    catch (e) {
+      console.log(e)
+    }
   };
 
 
@@ -42,7 +63,7 @@ class Login extends Component<RouterProps, LoginState> {
                   name="email"
                   className="w-full input input-bordered rounded-lg"
                   placeholder="youremail@example.com"
-                  onChange = {(e) => this.setState({username: e.target.value})}
+                  onChange = {(e) => this.setState({email: e.target.value})}
                 />
               </div>
               <div className="mb-4">

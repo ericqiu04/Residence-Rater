@@ -48,8 +48,8 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication'
+
     ),
 }
 
@@ -64,6 +64,7 @@ SIMPLE_JWT = {
     'SIGNING_KEY': settings.SECRET_KEY,
     'VERIFYING_KEY': None,
     'AUTH_HEADER_TYPES': ('Bearer',),
+    'USER_ID_FIELD': 'uuid'
 }
 
 ROOT_URLCONF = 'server.urls'

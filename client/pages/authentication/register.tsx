@@ -34,7 +34,7 @@ class Register extends Component<RouterProps, registerState> {
       await updateProfile(user, {
         displayName: username,
       })
-
+    
     }
     catch (e) {
       console.log("failed to create user")

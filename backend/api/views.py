@@ -4,6 +4,7 @@ from django.db import models
 from django.http import HttpResponse, JsonResponse
 import json
 
+from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -16,15 +17,9 @@ def hello_world(request):
 
 def user_register(request):
     data = json.loads(request.body)
-    username = data.get('username')
-    fName = data.get("firstName")
-    lName = data.get('lastName')
-    password = data.get("password")
-    cPassword = data.get('confirmPass')
-    email = data.get("email")
     
-    message = register(username,fName, lName, email, password, cPassword)
-    return Response(message)
+    message = register(data)
+    return JsonResponse(message)
 
 def user_login(request):
     data = json.loads(request.body)
@@ -32,7 +27,7 @@ def user_login(request):
     password = data.get("password")
     
     message = login(username, password)
-    return JsonResponse(message)
+    return JsonResponse(message, safe=False)
 
 @csrf_exempt
 def user_profiles(request, username):

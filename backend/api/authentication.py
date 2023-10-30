@@ -3,12 +3,8 @@ from firebase_admin import credentials, firestore, auth
 import bcrypt
 
 from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
 
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework_simplejwt.views import TokenRefreshView
+
 
 
 cred = credentials.Certificate("../credentials/serviceAccountKey.json")
@@ -33,55 +29,39 @@ def get_firebase_config(request):
         return Response(firebase_config)
 
 
-def register(username, first_name, last_name, email, password, confirm_password):
-    
-    user_id = username.upper()
+def register(data):
+    try:
+        user = auth.create_user(
+            email=data.get('email'),
+            email_verified=True,
+            password=data.get('password')
+        )
 
-    if(confirm_password != password):
-        return {"error": "passwords do not match"}
-    if check_email(email):
-        return {"error" : "email in use"}
-    if check_username(user_id):
-        return {'error': 'username taken'}
-    
+        auth.set_custom_user_claims(user.uid, {
+            'firstName': data.get('firstName'),
+            'lastName': data.get('lastName')
+        })
 
-    h_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        custom_token = auth.create_custom_token(user.uid)
 
-    #storing to database
-    user_ref.document(user_id).set({
-        'username' : user_id,
-        'firstName': first_name,
-        'lastName': last_name,
-        'email': email,
-        'password': h_password.decode('utf-8')
-    })
-
-    user = {'user':user_id}
-    refresh = RefreshToken.for_user(user.upper())
-    
-    return {'accessToken': refresh.access_token, 'refreshToken': refresh}
+        return {'token': str(custom_token)}
+    except Exception as e:
+        return {'error': str(e)}
 
 
-def login(username, password):
-    if not check_username(username.upper()):
-        return {'message': 'incorrect username'}
 
-    user_id = username.upper()
-    user_data = user_ref.document(user_id).get()
-
-
-    if user_data.exists:
-        h_password = user_data.to_dict().get('password')
-
-        # Checks for password matching
-        if bcrypt.checkpw(password.encode('utf-8'), h_password.encode('utf-8')):
-            # Use the username as the identifier
-            refresh = RefreshToken.for_user(user_identifier)
-            return {'accessToken': refresh.access_token, 'refreshToken': refresh}
+def login(data):
+    try:
+        user = auth.get_user_by_email(data.get('email'))
+        if user:
+            custom_token = auth.create_custom_token(user.uid)
+            return {'token': str(custom_token)}
         else:
-            return {'error': "password incorrect"}
-    else:
-        return {'error': "user not found"}
+            return {'error': 'user not found'}
+
+
+    except Exception as e:
+        return {'error': str(e)}
 
 
 def update_user(user, new_data):

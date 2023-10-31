@@ -6,20 +6,8 @@ from rest_framework.response import Response
 import json
 from django.http import JsonResponse
 
-from rest_framework_simplejwt.tokens import RefreshToken 
-from rest_framework import serializers, viewsets
-from django.contrib.auth.models import User
-
-
-if not firebase_admin._apps:
-    cred = credentials.Certificate("../credentials/serviceAccountKey.json")
-    firebase_admin.initialize_app(cred)
-
-
-
-
-def get_firebase_config(request):
-     with open('../credentials/serviceAccountKey.json', 'r') as file:
+def get_firebase_key(request):
+     with open('../credentials/apiKey.json', 'r') as file:
         data = json.load(file)
         key = data.get('firebase_key')
         return JsonResponse({'config': key})
@@ -35,7 +23,7 @@ def verify_token(request):
         password = decoded_token['password']
         display_name = decoded_token['displayName']
         
-        return JsonResponse({"message": "Token verified", "uid": uid, "email": email, "name": display_name})
+        return JsonResponse({"message": "Token verified", "uid": uid, "email": email, "name": display_name}, status = 200)
 
     except Exception as e:
         return JsonResponse({'error': 'failed to verify'})

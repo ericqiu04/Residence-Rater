@@ -14,6 +14,6 @@ urlpatterns = [
     path('get_residence_info/<str:university>/<str:residence_name>/', rating.get_residence_info, name="get_residences"),
     path('get_location/<str:residence_name>/', gmaps.get_location, name="get_location"),
     path('get_frontend_key/', gmaps.get_frontend_key, name="get_key"),
-    path('firebase-config/', authentication.get_firebase_config, name="firebase-config"),
+    path('firebase_key/', authentication.get_firebase_key, name="firebase-key"),
     path('verify_token/', authentication.verify_token, name = "verify_token")
 ]

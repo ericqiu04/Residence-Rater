@@ -1,22 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    checkIsAuthenticated()
+  }, [])
 
-  const handleSearchChange = (e: any) => {
-    setSearchQuery(e.target.value);
-  };
+  const checkIsAuthenticated = () => {
+    const idToken = Cookies.get("idToken")
 
-  const handleSearchSubmit = (e: any) => {
-    e.preventDefault();
-    console.log("Search for:", searchQuery);
-    // logic
-  };
+    if (idToken) {
+      setIsAuthenticated(true)
+    }
+    else {
+      setIsAuthenticated(false)
+    }
+  }
 
   const handleNavigation = (route: any) => {
     router.push(route);
@@ -25,6 +30,12 @@ const Navbar = () => {
       router.reload();
     }, delayMilliseconds);
   };
+
+  const handleLogout = () => {
+    Cookies.remove('idToken')
+    setIsAuthenticated(false)
+    router.push('/')
+  }
 
   return (
     <div className="drawer drawer-end fixed top-0 z-10 xl:px-48 bg-base-100">
@@ -80,13 +91,23 @@ const Navbar = () => {
             >
               Universities
             </h4>
-            <h4
-              className="text-default text-lg"
-              style={{ cursor: "pointer" }}
-              onClick={() => handleNavigation("/authentication/login")}
-            >
-              Login / Register
-            </h4>
+            {isAuthenticated ? (
+                <h4
+                    className="text-default text-lg"
+                    style={{ cursor: "pointer" }}
+                    onClick={handleLogout}
+                >
+                  Logout
+                </h4>
+            ) : (
+                <h4
+                    className="text-default text-lg"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleNavigation("/authentication/login")}
+                >
+                  Login / Register
+                </h4>
+            )}
           </div>
         </ul>
       </div>

@@ -7,9 +7,8 @@ import {RouterProps} from "@/data/props";
 import Link from "next/link";
 import {RegisterState} from "@/data/state";
 //Auth
-import {getAuth, getIdToken} from "@firebase/auth";
 import 'firebase/auth';
-import {createUserWithEmailAndPassword, updateProfile} from "@firebase/auth";
+import firebase from "@/auth/firebase";
 
 
 
@@ -29,11 +28,11 @@ class Register extends Component<RouterProps, RegisterState> {
     e.preventDefault()
     const { email, username, firstName, lastName, password } = this.state;
     try {
-      const auth = getAuth()
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+      const userCredentials = await firebase.auth().createUserWithEmailAndPassword(email, password)
       const user = userCredentials.user
 
-      const idToken = await user.getIdToken()
+      // @ts-ignore
+      const idToken:string = await user.getIdToken()
 
       const response = await api.post('/api/verify_token', {idToken})
 
@@ -45,7 +44,7 @@ class Register extends Component<RouterProps, RegisterState> {
 
     }
     catch (e) {
-      console.log("failed to create user")
+      console.log(e)
     }
   };
 

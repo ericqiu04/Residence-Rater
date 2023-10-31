@@ -11,14 +11,11 @@ from rest_framework import serializers, viewsets
 from django.contrib.auth.models import User
 
 
+if not firebase_admin._apps:
+    cred = credentials.Certificate("../credentials/serviceAccountKey.json")
+    firebase_admin.initialize_app(cred)
 
 
-cred = credentials.Certificate("../credentials/serviceAccountKey.json")
-firebase_admin.initialize_app(
-    cred, {"databaseURL": "https://ontario-residence-rater.firebaseio.com"}
-)
-db = firestore.client()
-user_ref = db.collection("users")
 
 
 def get_firebase_config(request):
@@ -42,4 +39,3 @@ def verify_token(request):
 
     except Exception as e:
         return JsonResponse({'error': 'failed to verify'})
-    

@@ -2,7 +2,6 @@ import json
 
 from firebase_admin import credentials, firestore
 from django.http import JsonResponse
-cred = credentials.Certificate("../credentials/serviceAccountKey.json")
 db = firestore.client()
 user_ref = db.collection("universities")
 

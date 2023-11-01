@@ -29,7 +29,7 @@ class Login extends Component<RouterProps, LoginState> {
 
       const idToken = await user.getIdToken()
 
-      const response = await api.post('/api/verify_token', {idToken})
+      const response = await api.post('verify_token', {idToken})
 
       if (response.status === 200) {
         try {

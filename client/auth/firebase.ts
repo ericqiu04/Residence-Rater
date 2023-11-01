@@ -5,7 +5,7 @@ import { getAuth } from "@firebase/auth";
 import api from './api'
 
 const getKey = async () => {
-    const response = await api.get('api/firebase_key')
+    const response = await api.get('firebase_key')
     const key = response.data.config
     return (key)
 }

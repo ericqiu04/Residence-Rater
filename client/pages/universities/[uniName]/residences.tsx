@@ -27,7 +27,7 @@ class Residences extends React.Component<Props, State> {
 
   async fetchData(uniName:any) {
     try {
-      const response = await this.api.get(`api/get_residences/${uniName}`);
+      const response = await this.api.get(`get_residences/${uniName}`);
       console.log(response);
       const residences = response.data.residences;
       this.setState({ uniName, residences });

@@ -26,8 +26,8 @@ class Map extends Component<googleMapProps, googleMapState> {
   async componentDidMount() {
     const { residence } = this.props;
     try {
-      const response = await this.api.get("api/get_frontend_key");
-      const response2 = await this.api.get(`api/get_location/${residence}`);
+      const response = await this.api.get("get_frontend_key");
+      const response2 = await this.api.get(`get_location/${residence}`);
       const key = response.data.key;
       this.setState({ key });
       

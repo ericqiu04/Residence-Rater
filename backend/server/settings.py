@@ -74,7 +74,7 @@ SIMPLE_JWT = {
 }
 
 ROOT_URLCONF = 'server.urls'
-
+APPEND_SLASH = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -23,7 +23,7 @@ class Universities extends React.Component<{}, UniversityDataState> {
 
   async componentDidMount() {
     try {
-      const response = await this.api.get("/api/get_university/");
+      const response = await this.api.get("get_university");
       const universities = response.data.universities;
 
       this.setState({ universities: universities, message: "working" });

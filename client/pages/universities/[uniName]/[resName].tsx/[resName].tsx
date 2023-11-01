@@ -60,6 +60,7 @@ class ResInfo extends Component<ResProps, ResState> {
 
   render() {
     const { resName, residenceInfo } = this.state;
+    // @ts-ignore
     return (
       <div className="p-5">
         <div className="flex justify-center md:mb-20">

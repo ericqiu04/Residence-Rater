@@ -33,7 +33,7 @@ class AuthManager {
 
   login = async (data: loginData) => {
     try {
-      const response = await api.post("/api/login", { data });
+      const response = await api.post("login", { data });
       const { accessToken, refreshToken } = response.data;
       setAccessToken(accessToken);
       setRefreshToken(refreshToken);
@@ -46,7 +46,7 @@ class AuthManager {
 
   register = async (data: registerData) => {
     try {
-      const response = await api.post("/api/register", { data });
+      const response = await api.post("register", { data });
       const {accessToken, refreshToken} = response.data
       setAccessToken(accessToken)
       setRefreshToken(refreshToken)

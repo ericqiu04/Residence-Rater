@@ -1,8 +1,5 @@
-import firebase_admin
 from firebase_admin import credentials, firestore, auth
-import bcrypt
-
-from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_protect
 import json
 from django.http import JsonResponse
 
@@ -12,10 +9,8 @@ def get_firebase_key(request):
         key = data.get('firebase_key')
         return JsonResponse({'config': key})
 
-
 def verify_token(request):
-    token = request.POST.get("idToken")   
-
+    token = request.POST.get("idToken")
     try:
         decoded_token = auth.verify_id_token(token) 
         uid = decoded_token['uid']

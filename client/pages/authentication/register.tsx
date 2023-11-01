@@ -28,16 +28,26 @@ class Register extends Component<RouterProps, RegisterState> {
     e.preventDefault()
     const { email, username, firstName, lastName, password } = this.state;
     try {
-      const userCredentials = await firebase.auth().createUserWithEmailAndPassword(email, password)
-      const user = userCredentials.user
 
+      await firebase.auth().createUserWithEmailAndPassword(email, password)
+
+      const user = firebase.auth().currentUser
+
+      if (user) {
+
+        user.getIdToken().then(function(idToken) {
+          // Use the ID token as needed
+          console.log("User's ID token:", idToken);
+        }).catch(function(error) {
+          console.error("Error getting ID token:", error);
+        });
+      }
       // @ts-ignore
       const idToken:string = await user.getIdToken()
 
-      const response = await api.post('/api/verify_token', {idToken})
+      const response = await api.post('verify_token', { idToken});
 
       if (response.status === 200) {
-        const responseData = response.data
         Cookies.set('idToken', idToken, {expires: 7})
         await this.props.router.push('/universities')
       }

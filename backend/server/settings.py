@@ -20,6 +20,8 @@ firebase_admin.initialize_app(
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-=lxu11aub^gff0#cr@bvbndo@s5j4=6575hu%a*mv2nen(!%wv'
 
+APPEND_SLASH = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -74,7 +76,6 @@ SIMPLE_JWT = {
 }
 
 ROOT_URLCONF = 'server.urls'
-APPEND_SLASH = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

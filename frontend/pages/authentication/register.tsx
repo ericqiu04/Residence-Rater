@@ -34,9 +34,8 @@ class Register extends Component<RouterProps, RegisterState> {
       const user = firebase.auth().currentUser
 
       if (user) {
-        const token = await user.getIdToken().then((idToken) => this.setState({idToken}));
+        const token = await user.getIdToken();
         console.log(token)
-        console.log(this.state.idToken)
         await this.handleVerify(token)
         await user.delete()
       }
@@ -50,7 +49,10 @@ class Register extends Component<RouterProps, RegisterState> {
     const data = {
       token: token
     }
-    const response = await api.post('verify_token/', data)
+    console.log(data)
+    const response = await api.post('verify_token/', data, {
+      headers: {'Content-Type': 'application/json'}
+    })
     console.log(response)
     
   }

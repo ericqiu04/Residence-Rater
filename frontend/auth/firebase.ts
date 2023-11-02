@@ -10,6 +10,7 @@ const getKey = async () => {
 }
 
 const firebaseKey = await getKey()
+console.log(firebaseKey)
 const firebaseConfig = {
     apiKey: firebaseKey,
     authDomain: 'ontario-residence-rater.firebaseapp.com',

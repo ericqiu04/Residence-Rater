@@ -47,14 +47,12 @@ class Register extends Component<RouterProps, RegisterState> {
   };
 
   handleVerify = async(token:any) => {
-    const {idToken} = this.state
-    console.log(idToken)
-    if (idToken) {
-      const response = await api.post('verify_token', { idToken});
+    const data = {
+      token: token
     }
-    else {
-      const response = await api.post('verify_token', {token})
-    }
+    const response = await api.post('verify_token/', data)
+    console.log(response)
+    
   }
 
   render() {

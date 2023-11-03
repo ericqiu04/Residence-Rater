@@ -13,11 +13,13 @@ const Navbar = () => {
 
   const checkIsAuthenticated = () => {
     const idToken = Cookies.get("idToken")
-
+    console.log(idToken)
     if (idToken) {
+      console.log("work")
       setIsAuthenticated(true)
     }
     else {
+      console.log('fial')
       setIsAuthenticated(false)
     }
   }
@@ -61,13 +63,20 @@ const Navbar = () => {
               >
                 Universities
               </h4>
-              <h4
+              {isAuthenticated ? (<h4
+                className="text-xl"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleLogout()}
+              >
+                Logout
+              </h4>) : (<h4
                 className="text-xl"
                 style={{ cursor: "pointer" }}
                 onClick={() => handleNavigation("/authentication/login")}
               >
                 Login / Register
-              </h4>
+              </h4>)}
+              
             </div>
             <div className="flex-none lg:hidden">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">

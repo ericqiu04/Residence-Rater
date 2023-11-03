@@ -11,5 +11,6 @@ export type RegisterState = {
     firstName: string;
     lastName: string;
     password: any;
-    idToken: any;
+    emailTaken:boolean;
+    weakPassword: boolean;
 };

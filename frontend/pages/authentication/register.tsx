@@ -21,7 +21,8 @@ class Register extends Component<RouterProps, RegisterState> {
       firstName: "",
       lastName: "",
       password: null,
-      idToken: null,
+      emailTaken: false,
+      weakPassword: false
     };
   }
 
@@ -29,19 +30,28 @@ class Register extends Component<RouterProps, RegisterState> {
     e.preventDefault()
     const { email, username, firstName, lastName, password } = this.state;
     try {
-
+      this.setState({emailTaken: false, weakPassword: false})
       await firebase.auth().createUserWithEmailAndPassword(email, password)
       const user = firebase.auth().currentUser
+      user?.updateProfile({
+        displayName: username
+      })
 
       if (user) {
         const token = await user.getIdToken();
-        console.log(token)
         await this.handleVerify(token)
-        await user.delete()
       }
     }
-    catch (e) {
-      console.log(e)
+    catch (e:any) {
+      if (e.code === "auth/email-already-in-use") {
+        this.setState({emailTaken: true})
+      }
+      else if(e.code === "auth/weak-password"){
+        this.setState({weakPassword: true})
+      }
+      else {
+        console.log(e)
+      }
     }
   };
 
@@ -49,15 +59,21 @@ class Register extends Component<RouterProps, RegisterState> {
     const data = {
       token: token
     }
-    console.log(data)
+    console.log(token)
     const response = await api.post('verify_token/', data, {
       headers: {'Content-Type': 'application/json'}
     })
-    console.log(response)
-    
+  
+    if (response.status == 200) {
+      Cookies.set("idToken", token, {expires: 14})
+      Cookies.set('email', this.state.email)
+      this.props.router.push('/universities')
+    }
+ 
   }
 
   render() {
+    const {emailTaken, weakPassword} = this.state
     return (
       <>
         <div className="min-h-[70vh] flex items-center justify-center text-customDefault">
@@ -67,6 +83,7 @@ class Register extends Component<RouterProps, RegisterState> {
             </h2>
             <form onSubmit={() => this.handleRegister}>
               {/** email */}
+              
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   E-Mail
@@ -141,6 +158,17 @@ class Register extends Component<RouterProps, RegisterState> {
                   onChange={(e) => this.setState({ password: e.target.value })}
                 />
               </div>
+              {emailTaken ? (<div className = "text-center text-red-600 mb-2">
+                *Email is Taken
+              </div>) : (<>
+              
+              </>)}
+
+              {weakPassword ? (<div className = "text-center text-red-600 mb-2">
+                *Password too short
+              </div>) : (<>
+              
+              </>)}
               {/** button */}
               <div className="flex flex-col items-center justify-center space-y-3">
                 <button

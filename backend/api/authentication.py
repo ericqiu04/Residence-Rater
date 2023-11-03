@@ -13,12 +13,12 @@ def get_firebase_key(request):
 @csrf_exempt
 def verify_token(request):
     token = json.loads(request.body).get('token')
-    print(token)
     try:
-        decoded_token = auth.verify_id_token(token) 
+        decoded_token = auth.verify_id_token(token)
+        print(decoded_token) 
         uid = decoded_token['user_id']
         email = decoded_token['email']
         return JsonResponse({"message": "Token verified", "uid": uid, "email": email}, status = 200)
 
     except Exception as e:
-        return JsonResponse({'error': 'failed to verify'})
+        return JsonResponse(e)

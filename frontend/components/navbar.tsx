@@ -13,13 +13,10 @@ const Navbar = () => {
 
   const checkIsAuthenticated = () => {
     const idToken = Cookies.get("idToken")
-    console.log(idToken)
     if (idToken) {
-      console.log("work")
       setIsAuthenticated(true)
     }
     else {
-      console.log('fial')
       setIsAuthenticated(false)
     }
   }
@@ -34,8 +31,13 @@ const Navbar = () => {
 
   const handleLogout = () => {
     Cookies.remove('idToken')
+    Cookies.remove('email')
     setIsAuthenticated(false)
     router.push('/')
+    const delayMilliseconds = 500;
+    setTimeout(() => {
+      router.reload();
+    }, delayMilliseconds);
   }
 
   return (

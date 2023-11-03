@@ -1,29 +1,22 @@
 import Head from "next/head";
 import React from "react";
-import axios from "axios";
 import UniProp from "@/components/university/uniProp";
-
-type UniversityDataState = {
-  universities: Array<{ name: string; logo: string; residences: any }>;
-  message: string;
-};
+import api from "@/auth/api";
+import { UniversityDataState } from "@/data/state";
 
 class Universities extends React.Component<{}, UniversityDataState> {
-  api: any;
   constructor(props: any) {
     super(props);
     this.state = {
       universities: [],
       message: "Not working",
     };
-    this.api = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-    });
+  
   }
 
   async componentDidMount() {
     try {
-      const response = await this.api.get("get_university");
+      const response = await api.get("get_university");
       const universities = response.data.universities;
 
       this.setState({ universities: universities, message: "working" });
@@ -33,8 +26,7 @@ class Universities extends React.Component<{}, UniversityDataState> {
   }
 
   render() {
-    const { message, universities } = this.state;
-    console.log(message);
+    const { universities } = this.state;
     return (
       <div className="w-full flex flex-wrap justify-center items-center m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-x-10 lg:gap-x-20 gap-y-10 mx-auto fadeLonger p-10">

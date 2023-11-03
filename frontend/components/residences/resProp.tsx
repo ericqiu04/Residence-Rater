@@ -1,16 +1,10 @@
 import Link from "next/link";
 import { Component } from "react";
 import { motion } from "framer-motion";
+import { ResPropProp } from "@/data/props";
 
-interface resProp {
-  resName: string;
-  resImageLink: any;
-  rating: string;
-  uniName: string;
-}
-
-class ResProp extends Component<resProp, {}> {
-  constructor(props: resProp) {
+class ResProp extends Component<ResPropProp, {}> {
+  constructor(props: ResPropProp) {
     super(props);
   }
 

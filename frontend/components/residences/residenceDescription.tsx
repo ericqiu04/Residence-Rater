@@ -1,30 +1,16 @@
 import {Component} from 'react'
 import Rating from '@/components/rating'
 import axios from 'axios'
-import Cookies from 'js-cookie'
 import Map from '@/components/map'
-
-type resDescProps = {
-    residence: string | string[]
-    pricing: string | string[]
-    rating: string | string[]
-    style: string 
-}
-type gmapState = {
-    address: string | string[]
-    location: any | any[]
-}
+import { gmapState } from '@/data/state'
+import { resDescProps } from '@/data/props'
 class ResidenceDescription extends Component<resDescProps, gmapState> {
-    api:any
     constructor(props:resDescProps){
         super(props)
         this.state = {
             address: '',
             location: "",
         }
-        this.api = axios.create({
-            baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-          });
     }
 
     render(){

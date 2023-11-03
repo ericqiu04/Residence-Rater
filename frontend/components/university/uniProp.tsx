@@ -1,20 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-interface university {
-  key: number;
-  name: string;
-  logo: string;
-}
+import { UniPropProp } from "@/data/props";
 
-class UniProp extends React.Component<university> {
-  constructor(props: university) {
+class UniProp extends React.Component<UniPropProp> {
+  constructor(props: UniPropProp) {
     super(props);
   }
 
   render() {
     const { name } = this.props;
-    console.log(name)
     return (
       <>
         <Link href="/universities/[uniName]/residences" as={`/universities/${encodeURIComponent(name)}/residences`} className = "text-customDefault">

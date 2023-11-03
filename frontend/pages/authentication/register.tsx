@@ -50,7 +50,7 @@ class Register extends Component<RouterProps, RegisterState> {
         this.setState({weakPassword: true})
       }
       else {
-        console.log(e)
+
       }
     }
   };
@@ -59,7 +59,6 @@ class Register extends Component<RouterProps, RegisterState> {
     const data = {
       token: token
     }
-    console.log(token)
     const response = await api.post('verify_token/', data, {
       headers: {'Content-Type': 'application/json'}
     })
@@ -68,6 +67,10 @@ class Register extends Component<RouterProps, RegisterState> {
       Cookies.set("idToken", token, {expires: 14})
       Cookies.set('email', this.state.email)
       this.props.router.push('/universities')
+      const delayMilliseconds = 500;
+      setTimeout(() => {
+        this.props.router.reload();
+      }, delayMilliseconds);
     }
  
   }

@@ -3,16 +3,10 @@ import { withRouter, NextRouter } from "next/router";
 import axios from "axios";
 import ResProp from "@/components/residences/resProp";
 import api from "@/auth/api";
+import { RouterProps } from "@/data/props";
+import { DefResState } from "@/data/state";
 
-type State = {
-  uniName: string;
-  residences: any[];
-};
-
-type Props = {
-  router: NextRouter;
-};
-class Residences extends React.Component<Props, State> {
+class Residences extends React.Component<RouterProps, DefResState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -24,11 +18,10 @@ class Residences extends React.Component<Props, State> {
   async fetchData(uniName:any) {
     try {
       const response = await api.get(`get_residences/${uniName}`);
-      console.log(response);
       const residences = response.data.residences;
       this.setState({ uniName, residences });
     } catch (e) {
-      console.log("failed");
+      
     }
   }
 

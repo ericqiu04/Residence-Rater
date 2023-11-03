@@ -1,15 +1,9 @@
 import { Component } from "react";
+import { ResImageProps } from "@/data/props";
+import {ResImageState} from "@/data/state"
 
-type resImageProps = {
-  images: any[];
-};
-
-type resImageState = {
-  selectedImage: any;
-};
-
-class ResidenceImages extends Component<resImageProps, resImageState> {
-  constructor(props: resImageProps) {
+class ResidenceImages extends Component<ResImageProps, ResImageState> {
+  constructor(props: ResImageProps) {
     super(props);
     this.state = {
       selectedImage: 0,

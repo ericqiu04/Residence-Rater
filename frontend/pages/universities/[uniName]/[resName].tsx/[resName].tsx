@@ -5,17 +5,10 @@ import ResidenceImages from "@/components/residences/residenceImages";
 import ResidenceDescription from "@/components/residences/residenceDescription";
 
 import api from "@/auth/api";
-type ResState = {
-  uniName: string | string[] | undefined;
-  resName: string | string[] | undefined;
-  residenceInfo: any;
-};
+import { ResState } from "@/data/state";
+import { RouterProps } from "@/data/props";
 
-type ResProps = {
-  router: NextRouter;
-};
-
-class ResInfo extends Component<ResProps, ResState> {
+class ResInfo extends Component<RouterProps, ResState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -39,7 +32,7 @@ class ResInfo extends Component<ResProps, ResState> {
         const residenceInfo = response.data.residenceInfo;
         this.setState({ uniName, resName, residenceInfo });
       } catch (e) {
-        console.log("failed to retrieve residence info");
+
       }
     }
   }
@@ -48,7 +41,7 @@ class ResInfo extends Component<ResProps, ResState> {
     this.fetchData();
   }
 
-  componentDidUpdate(prevProps: ResProps) {
+  componentDidUpdate(prevProps: RouterProps) {
     if (prevProps.router.query.uniName !== this.props.router.query.uniName || prevProps.router.query.resName !== this.props.router.query.resName) {
       this.fetchData();
     }

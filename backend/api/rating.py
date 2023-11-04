@@ -93,3 +93,17 @@ def get_residence_info(request, university, residence_name):
     res_data = res_ref.get().to_dict()
     return JsonResponse({'residenceInfo': res_data})    
 
+def fetch_ratings(request, univeristy, residenceName):
+    res_ref = user_ref.document(univeristy.lower()).collection('residence').document(residence_name.lower()).collection('ratings')
+    rating_data = res_ref.get().to_dict()
+
+    data = []
+    for rating in rating_data:
+        r = {
+            rating.get['user'],
+            rating.get['message'],
+            rating.get['rating']
+        }
+        data.append(r)
+    
+    return JsonResponse({'ratings': data})

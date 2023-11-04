@@ -33,3 +33,8 @@ export type ResPropProp = {
 export type MapProps = {
     residence: string | string[];
   };
+
+export type RatingProps = {
+  uniName: string | string[],
+  resName: string | string[],
+}

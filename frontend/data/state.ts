@@ -49,3 +49,9 @@ export type MapState = {
     key: string;
     location: any | any[];
   };
+
+export type RatingState = {
+  message:string;
+  rating: number;
+  allRatings: any[]
+}

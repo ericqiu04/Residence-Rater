@@ -3,6 +3,7 @@ import { withRouter, NextRouter } from "next/router";
 
 import ResidenceImages from "@/components/residences/residenceImages";
 import ResidenceDescription from "@/components/residences/residenceDescription";
+import ResidenceRating from "@/components/residences/residenceRating";
 
 import api from "@/auth/api";
 import { ResState } from "@/data/state";
@@ -48,7 +49,7 @@ class ResInfo extends Component<RouterProps, ResState> {
   }
 
   render() {
-    const { resName, residenceInfo } = this.state;
+    const { uniName, resName, residenceInfo } = this.state;
     // @ts-ignore
     return (
       <div className="p-5">
@@ -77,6 +78,9 @@ class ResInfo extends Component<RouterProps, ResState> {
               <></>
             )}
           </div>
+        </div>
+        <div>
+          <ResidenceRating uniName = {uniName} resName = {resName} />
         </div>
       </div>
     );

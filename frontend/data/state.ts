@@ -31,8 +31,8 @@ export type DefResState = {
   };
 
 export type ResState = {
-    uniName: string | string[] | undefined;
-    resName: string | string[] | undefined;
+    uniName: string | string[] ;
+    resName: string | string[] ;
     residenceInfo: any;
   };
 
@@ -53,5 +53,9 @@ export type MapState = {
 export type RatingState = {
   message:string;
   rating: number;
-  allRatings: any[]
+  allRatings: any[];
+  hover: any;
+  user:any,
+  uniName:string | string[],
+  resName:string | string[],
 }

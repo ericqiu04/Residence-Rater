@@ -2,6 +2,8 @@ import json
 
 from firebase_admin import credentials, firestore
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 db = firestore.client()
 user_ref = db.collection("universities")
 
@@ -9,10 +11,10 @@ def create_review(uni_name, res_name, user, message, rating_value):
     rating_ref = get_rating_ref(uni_name, res_name)
     rating = rating_ref.document(user.lower())
     rating.set({
+        "user":user,
         "message": message,
         "rating": rating_value
     })
-    average_rating(uni_name, res_name)
     return {'success': 'rating_created'}
 
 def update_review(uni_name, res_name, user, data):
@@ -24,7 +26,6 @@ def update_review(uni_name, res_name, user, data):
         return {'error': 'rating does not exist'}
     update_data = {**current_data, **data}
     rating.update(update_data)
-    average_rating(uni_name, res_name)
     return {'success': 'rating updated'}
 
 def delete_review(uni_name, res_name, user):
@@ -35,7 +36,6 @@ def delete_review(uni_name, res_name, user):
         return {'error': 'rating does not exist'}
     
     rating_ref.document(user.lower()).delete()
-    average_rating(uni_name, res_name)
     return {'success': 'rating has been deleted'}
 
 def average_rating(uni_name, res_name):
@@ -93,17 +93,22 @@ def get_residence_info(request, university, residence_name):
     res_data = res_ref.get().to_dict()
     return JsonResponse({'residenceInfo': res_data})    
 
-def fetch_ratings(request, univeristy, residenceName):
-    res_ref = user_ref.document(univeristy.lower()).collection('residence').document(residence_name.lower()).collection('ratings')
-    rating_data = res_ref.get().to_dict()
+@csrf_exempt
+def fetch_ratings(request, university, residence_name):
+    res_ref = user_ref.document(university.lower()).collection('residence').document(residence_name.lower()).collection('rating')
+    rating_data = res_ref.stream()
 
     data = []
-    for rating in rating_data:
+    print(rating_data)
+    for rating_doc in rating_data:
+        rating = rating_doc.to_dict()
+        print(rating)
         r = {
-            rating.get['user'],
-            rating.get['message'],
-            rating.get['rating']
+            'user': rating.get('user'),
+            'message': rating.get('message'),
+            'rating': rating.get('rating')
         }
+        print(r)
         data.append(r)
-    
+
     return JsonResponse({'ratings': data})

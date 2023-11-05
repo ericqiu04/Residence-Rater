@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Component } from "react";
 import { motion } from "framer-motion";
 import { ResPropProp } from "@/data/props";
-
+import Image from "next/image";
 class ResProp extends Component<ResPropProp, {}> {
   constructor(props: ResPropProp) {
     super(props);

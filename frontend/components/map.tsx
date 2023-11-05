@@ -40,7 +40,7 @@ class Map extends Component<MapProps, MapState> {
       <LoadScript googleMapsApiKey={key}>
         <GoogleMap
           mapContainerStyle={{
-            height: "400px",
+            height: "350px",
             width: "100%",
           }}
           center={center}

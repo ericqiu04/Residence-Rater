@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { UniPropProp } from "@/data/props";
-
+import Image from "next/image";
 class UniProp extends React.Component<UniPropProp> {
   constructor(props: UniPropProp) {
     super(props);
@@ -20,8 +20,13 @@ class UniProp extends React.Component<UniPropProp> {
             whileTap={{ scale: 0.95 }}
           >
             <figure className="">
-              <img src={this.props.logo} alt="logo" className="h-full" />
-            </figure>
+            <img
+                src={this.props.logo}
+                alt="logo"
+                className = "h-full"
+                width = {100}
+                height = {100}
+/>            </figure>
             <div className="card-body items-center text-center hidden md:flex">
               <h2 className="card-title">{this.props.name}</h2>
             </div>

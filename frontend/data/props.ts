@@ -37,4 +37,5 @@ export type MapProps = {
 export type RatingProps = {
   uniName: string | string[],
   resName: string | string[],
+  router:NextRouter
 }

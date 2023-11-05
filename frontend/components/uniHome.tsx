@@ -1,5 +1,6 @@
 import React from "react";
 import { BsSearch } from "react-icons/bs";
+import Image from "next/image";
 class UniHome extends React.Component {
   render() {
     return (

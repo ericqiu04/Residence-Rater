@@ -13,7 +13,8 @@ from .rating import create_review, update_review, delete_review
 
 def hello_world(request):
     return JsonResponse({"message": "Hello, world!"})
-    
+
+@csrf_exempt
 def create_rating(request, university, residence_name):
     data = json.loads(request.body)
     message = data.get('message')

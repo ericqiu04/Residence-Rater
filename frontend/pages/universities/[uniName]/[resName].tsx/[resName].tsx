@@ -29,7 +29,6 @@ class ResInfo extends Component<RouterProps, ResState> {
         const response = await api.get(
           `get_residence_info/${uniName}/${resName}`
         );
-        console.log(response);
         const residenceInfo = response.data.residenceInfo;
         this.setState({ uniName, resName, residenceInfo });
       } catch (e) {
@@ -56,8 +55,8 @@ class ResInfo extends Component<RouterProps, ResState> {
         <div className="flex justify-center md:mb-20">
           <h1 className="text-customDefault text-3xl font-bold">{resName}</h1>
         </div>
-        <div className="flex flex-row">
-          <div className="w-3/5">
+        <div className="flex md:flex-row flex-col mt-10">
+          <div className="w-full md:w-3/5">
             {residenceInfo ? (
               <div>
                 <ResidenceImages images={residenceInfo.images} />
@@ -66,7 +65,7 @@ class ResInfo extends Component<RouterProps, ResState> {
               <></>
             )}
           </div>
-          <div className="w-2/5">
+          <div className="w-full md:w-2/5">
             {residenceInfo ? (
               <ResidenceDescription
                 residence={resName}
@@ -79,7 +78,7 @@ class ResInfo extends Component<RouterProps, ResState> {
             )}
           </div>
         </div>
-        <div>
+        <div className = "w-full flex flex-wrap">
           <ResidenceRating uniName = {uniName} resName = {resName} />
         </div>
       </div>

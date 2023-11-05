@@ -36,7 +36,7 @@ class Residences extends React.Component<RouterProps, DefResState> {
     this.fetchData(uniName);
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps: RouterProps) {
     if (prevProps.router.query.uniName !== this.props.router.query.uniName) {
       const { uniName } = this.props.router.query;
       if (uniName) {

@@ -21,7 +21,6 @@ class Home extends React.Component {
           />
         </Head>
         <div className="w-full fadeIn">
-          {/* NAVBAR */}
           <UniHome />
         </div>
       </>

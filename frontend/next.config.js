@@ -2,5 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
 }
-
-module.exports = nextConfig
+module.exports = {
+  images: {
+    domains: ['dashboard.up-study.com', 'upload.wikimedia.org'],
+  },
+  reactStrictMode:true
+};

@@ -31,15 +31,19 @@ export type DefResState = {
   };
 
 export type ResState = {
-    uniName: string | string[] ;
-    resName: string | string[] ;
+    uniName: string ;
+    resName: string ;
     residenceInfo: any;
   };
 
-export type gmapState = {
-    address: string | string[]
+export type ResDescState = {
+    address: string 
     location: any | any[]
-}
+    average: number
+    uniName: string;
+    resName: string  ;
+    starRating: JSX.Element | null
+  }
 
 export type ResImageState = {
     selectedImage: number
@@ -56,6 +60,6 @@ export type RatingState = {
   allRatings: any[];
   hover: any;
   user:any,
-  uniName:string | string[],
-  resName:string | string[],
+  uniName:string,
+  resName:string,
 }

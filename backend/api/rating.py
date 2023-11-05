@@ -38,29 +38,35 @@ def delete_review(uni_name, res_name, user):
     rating_ref.document(user.lower()).delete()
     return {'success': 'rating has been deleted'}
 
-def average_rating(uni_name, res_name):
+def average_rating(request, university, residence_name):
     total_rating = 0
     num_rating = 0
-    rating_ref = get_rating_ref(uni_name, res_name)
-    house_ref = user_ref.document(uni_name.lower()).collection('residence').document(res_name.lower())
-    ratings = rating_ref.stream()
+    house_ref = user_ref.document(university.lower()).collection('residence').document(residence_name.lower())
+    ratings = get_rating_ref(university, residence_name).stream()
 
     for r in ratings:
         data = r.to_dict()
         rating = data.get('rating')
-        total_rating += rating
-        num_rating += 1
+        if rating is not None: 
+            total_rating += rating
+            num_rating += 1
     
     if total_rating > 0:
         average = total_rating / num_rating
+        rounded_average = round(average)
         house_ref.update({
-            'average rating': average + '/ 5.0'
+            'average_rating': f'{rounded_average} / 5.0'
         })
+        return JsonResponse({'average': rounded_average})
+
     
     else:
         house_ref.update({
-            'average rating': total_rating + '/ 5.0'
+            'average_rating': f'{total_rating} / 5.0'
         })
+        return JsonResponse({'average': total_rating})
+
+
 def get_rating_ref(uni_name, res_name):
     uni_ref = user_ref.document(uni_name.lower())
     house_ref = uni_ref.collection('residence').document(res_name.lower())
@@ -93,7 +99,6 @@ def get_residence_info(request, university, residence_name):
     res_data = res_ref.get().to_dict()
     return JsonResponse({'residenceInfo': res_data})    
 
-@csrf_exempt
 def fetch_ratings(request, university, residence_name):
     res_ref = user_ref.document(university.lower()).collection('residence').document(residence_name.lower()).collection('rating')
     rating_data = res_ref.stream()

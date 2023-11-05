@@ -13,6 +13,8 @@ export type UniPropProp = {
 
 //residence props
 export type resDescProps = {
+    resName: string 
+    uniName: string
     residence: string | string[]
     pricing: string | string[]
     rating: string | string[]

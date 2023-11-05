@@ -17,7 +17,6 @@ class ResInfo extends Component<RouterProps, ResState> {
       resName: "",
       residenceInfo: null,
     };
-  
   }
 
   async fetchData() {
@@ -30,10 +29,9 @@ class ResInfo extends Component<RouterProps, ResState> {
           `get_residence_info/${uniName}/${resName}`
         );
         const residenceInfo = response.data.residenceInfo;
+        //@ts-ignore
         this.setState({ uniName, resName, residenceInfo });
-      } catch (e) {
-
-      }
+      } catch (e) {}
     }
   }
 
@@ -42,7 +40,10 @@ class ResInfo extends Component<RouterProps, ResState> {
   }
 
   componentDidUpdate(prevProps: RouterProps) {
-    if (prevProps.router.query.uniName !== this.props.router.query.uniName || prevProps.router.query.resName !== this.props.router.query.resName) {
+    if (
+      prevProps.router.query.uniName !== this.props.router.query.uniName ||
+      prevProps.router.query.resName !== this.props.router.query.resName
+    ) {
       this.fetchData();
     }
   }
@@ -72,14 +73,16 @@ class ResInfo extends Component<RouterProps, ResState> {
                 pricing={residenceInfo.price}
                 style={residenceInfo.style}
                 rating={residenceInfo.rating}
+                resName={resName}
+                uniName={uniName}
               />
             ) : (
               <></>
             )}
           </div>
         </div>
-        <div className = "w-full flex flex-wrap">
-          <ResidenceRating uniName = {uniName} resName = {resName} />
+        <div className="w-full flex flex-wrap">
+          <ResidenceRating uniName={uniName} resName={resName} />
         </div>
       </div>
     );

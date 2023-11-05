@@ -7,6 +7,7 @@ import api from "@/auth/api";
 import Cookies from "js-cookie";
 import { FaStar } from "react-icons/fa";
 import { withRouter } from "next/router";
+import { fetchStar } from "@/components/star";
 class ResidenceRating extends Component<RatingProps, RatingState> {
   constructor(props: RatingProps) {
     super(props);
@@ -96,33 +97,6 @@ class ResidenceRating extends Component<RatingProps, RatingState> {
     );
   };
 
-  fetchStar = (rating: number) => {
-    return (
-      <div className="flex flex-row">
-        {Array(5)
-          .fill(null)
-          .map((_, index) => {
-            const starColor = index < rating ? "#ffc107" : "#102133";
-            return (
-              <label key={rating}>
-                <input
-                  type="radio"
-                  name="rating"
-                  value={rating}
-                  style={{ display: "none" }}
-                />
-                <FaStar
-                  className="cursor-pointer"
-                  size={25}
-                  color={starColor}
-                />
-              </label>
-            );
-          })}
-      </div>
-    );
-  };
-
   ratingComponent = (u: string, m: string, r: number, index: number) => {
     return (
       <div
@@ -135,7 +109,7 @@ class ResidenceRating extends Component<RatingProps, RatingState> {
           </div>
           <div className="ml-2">
             <p className=" font-semibold">{u}</p>
-            {this.fetchStar(r)}
+            {fetchStar(r)}
           </div>
         </div>
         <p className="mt-2">{m}</p>

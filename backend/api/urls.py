@@ -14,6 +14,7 @@ urlpatterns = [
     path('get_university/', rating.get_university, name="get_university"),
     path('get_residence_info/<str:university>/<str:residence_name>/', rating.get_residence_info, name="get_residences"),
     path('fetch_rating/<str:university>/<str:residence_name>/', rating.fetch_ratings, name = "fetch_rating"),
+    path('average_rating/<str:university>/<str:residence_name>/', rating.average_rating, name = "average_rating"),
 
     #gmaps.py
     path('get_location/<str:residence_name>/', gmaps.get_location, name="get_location"),

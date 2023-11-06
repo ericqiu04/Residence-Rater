@@ -101,7 +101,7 @@ class ResidenceRating extends Component<RatingProps, RatingState> {
     return (
       <div
         key={index}
-        className="max-w-md mx-auto bg-white shadow-md rounded-lg p-4 my-6"
+        className="max-w-md w-1/4 mx-auto bg-white shadow-md rounded-lg p-4 my-6"
       >
         <div className="flex items-center">
           <div className="rounded-full h-10 w-10 bg-gray-300 flex items-center justify-center">
@@ -120,7 +120,7 @@ class ResidenceRating extends Component<RatingProps, RatingState> {
   createRating = () => {
     const { message, user } = this.state;
     return (
-      <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-4 my-6 w-full sm:w-1/2">
+      <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-3 my-6 w-full md:w-1/5">
         <div className="flex items-center">
           <div className="rounded-full h-10 w-10 bg-gray-300 flex items-center justify-center">
             <BsPerson size={24} color="#333" />
@@ -167,7 +167,7 @@ class ResidenceRating extends Component<RatingProps, RatingState> {
   render() {
     const { message, rating, user, allRatings } = this.state;
     return (
-      <div className="flex justify-start flex-wrap space-x-10 text-customDefault">
+      <div className="flex justify-start flex-wrap space-x-4 text-customDefault">
         {this.createRating()}
         {allRatings.map((rating, index) =>
           this.ratingComponent(

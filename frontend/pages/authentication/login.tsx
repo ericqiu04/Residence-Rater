@@ -36,7 +36,7 @@ class Login extends Component<RouterProps, LoginState> {
       }
     }
     catch (e:any) {
-      if (e.code == 'auth/incorrect-password') {
+      if (e.code == 'auth/user-not-found') {
         this.setState({userFound: false})
       }
       else {
